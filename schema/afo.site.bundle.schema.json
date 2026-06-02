@@ -1,0 +1,196 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/nothinginfinity/afo-site-bundle-contract/schema/afo.site.bundle.schema.json",
+  "title": "AFO Site Bundle Manifest",
+  "description": "Shared contract between AFO Micro SEO Site Builder MCP and AFO Mobile Terminal / Deploy MCP. Schema v1.0.0.",
+  "type": "object",
+  "required": [
+    "schema", "schema_version", "bundle_id", "bundle_type", "status",
+    "created_at", "updated_at", "build_intent", "client", "site",
+    "content", "discovery", "schema_jsonld", "worker", "repo",
+    "validation", "deployment", "smoke_tests", "registry", "handoff"
+  ],
+  "properties": {
+    "schema": { "type": "string", "const": "afo.site.bundle" },
+    "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "bundle_id": { "type": "string" },
+    "bundle_type": { "type": "string", "enum": ["business_site", "landing_page", "portfolio", "blog", "custom"] },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft", "generated", "validated", "preview_ready",
+        "preview_deployed", "smoke_tested", "production_ready",
+        "production_deployed", "registered", "receipted"
+      ]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "build_intent": { "type": "string" },
+    "client": {
+      "type": "object",
+      "required": ["name", "industry"],
+      "properties": {
+        "name": { "type": "string" },
+        "industry": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "zip": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": ["base_url", "title", "description"],
+      "properties": {
+        "base_url": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "language": { "type": "string", "default": "en" },
+        "theme_color": { "type": "string" },
+        "logo_url": { "type": "string" }
+      }
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slug", "title"],
+            "properties": {
+              "slug": { "type": "string" },
+              "title": { "type": "string" },
+              "meta_description": { "type": "string" },
+              "body": { "type": "string" }
+            }
+          }
+        },
+        "articles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": { "type": "string" },
+              "title": { "type": "string" },
+              "body": { "type": "string" },
+              "published_at": { "type": "string" }
+            }
+          }
+        },
+        "faqs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["question", "answer"],
+            "properties": {
+              "question": { "type": "string" },
+              "answer": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "robots_txt": { "type": "string" },
+        "sitemap_url": { "type": "string" },
+        "llms_txt": { "type": "string" },
+        "canonical_url": { "type": "string" },
+        "og_image": { "type": "string" }
+      }
+    },
+    "schema_jsonld": { "type": "object" },
+    "worker": {
+      "type": "object",
+      "required": ["name", "entry_point"],
+      "properties": {
+        "name": { "type": "string" },
+        "entry_point": { "type": "string" },
+        "compatibility_date": { "type": "string" },
+        "routes": { "type": "array", "items": { "type": "string" } },
+        "bindings": { "type": "object" }
+      }
+    },
+    "repo": {
+      "type": "object",
+      "required": ["owner", "repo", "branch"],
+      "properties": {
+        "owner": { "type": "string" },
+        "repo": { "type": "string" },
+        "branch": { "type": "string" },
+        "bundle_path": { "type": "string" },
+        "worker_path": { "type": "string" }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "validated_at": { "type": ["string", "null"] },
+        "validated_by": { "type": ["string", "null"] },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "required": ["confirmed"],
+      "properties": {
+        "deploy_mode": { "type": "string", "enum": ["preview_first", "direct"], "default": "preview_first" },
+        "confirmed": { "type": "boolean", "default": false, "description": "MUST be true before production deployment. Defaults to false." },
+        "environment": { "type": "string", "enum": ["preview", "production"], "default": "preview" },
+        "preview_url": { "type": "string" },
+        "production_url": { "type": "string" },
+        "last_deploy": { "type": ["string", "null"] },
+        "deploy_receipts": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "smoke_tests": {
+      "type": "object",
+      "properties": {
+        "routes": { "type": "array", "items": { "type": "string" } },
+        "last_smoke_test": {
+          "type": ["object", "null"],
+          "properties": {
+            "run_at": { "type": "string" },
+            "passed": { "type": "boolean" },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "route": { "type": "string" },
+                  "status": { "type": "integer" },
+                  "passed": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "registry": {
+      "type": "object",
+      "properties": {
+        "registered": { "type": "boolean", "default": false },
+        "registered_at": { "type": ["string", "null"] },
+        "toolsmith_id": { "type": ["string", "null"] },
+        "afo_worker_id": { "type": ["string", "null"] }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "next_agent": { "type": ["string", "null"] },
+        "next_action": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] },
+        "handed_off_at": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
