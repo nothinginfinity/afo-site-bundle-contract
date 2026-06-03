@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "/menu",
+    "title": "Restaurant v0.05 Conversion Content Engine",
+    "meta_description": "Conversion-ready content engine with sticky Menu/Reserve/Event CTA, full menu schema, menu.json, testimonials, accessibility, and A/B dark preview.",
+    "sections": [
+      { "type": "sticky_conversion_cta", "label": "Menu/Reserve/Event", "future_chatbot": "D1 knowledge base chat hook" },
+      { "type": "menu_json", "route": "/menu.json" },
+      { "type": "deep_schema", "schemas": ["Restaurant", "Menu", "MenuSection", "MenuItem", "Offer", "Review"] },
+      { "type": "testimonials", "count": 4 },
+      { "type": "accessibility", "features": ["ARIA tab roles", "labeled testimonial region", "alt text", "lazy loading"] },
+      { "type": "ab_preview", "route": "/menu?variant=dark" }
+    ]
+  }
+]
