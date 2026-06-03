@@ -1,0 +1,106 @@
+{
+  "schema": "afo.site.bundle",
+  "schema_version": "1.0.0",
+  "bundle_id": "sample-restaurant-v004-afo-bundle",
+  "bundle_type": "micro_seo_site",
+  "status": "generated",
+  "created_at": "2026-06-03T00:00:00Z",
+  "updated_at": "2026-06-03T00:00:00Z",
+  "build_intent": "Create Restaurant v0.04 as a menu content engine with registry-driven item pages, markdown routes, schema, sitemap, and article tie-ins.",
+  "client": {
+    "name": "Sample Restaurant v0.04",
+    "industry": "Restaurant",
+    "location": "San Juan Capistrano, CA",
+    "contact_email": "owner@sample-restaurant-v004.example"
+  },
+  "site": {
+    "base_url": "https://sample-restaurant-v004.example",
+    "domain": "sample-restaurant-v004.example",
+    "title": "Sample Restaurant v0.04 - Menu Content Engine",
+    "description": "Restaurant v0.04 turns a menu registry into item pages, markdown endpoints, schema, sitemap entries, and behind-the-dish stories.",
+    "language": "en"
+  },
+  "content": {
+    "registry_files": [
+      "examples/sample-restaurant-v004/content/menu-sections.json",
+      "examples/sample-restaurant-v004/content/menu-items.json",
+      "examples/sample-restaurant-v004/content/articles.json"
+    ],
+    "generated_route_patterns": [
+      "/menu",
+      "/menu.md",
+      "/registry.json",
+      "/items/{id}",
+      "/items/{id}?format=md",
+      "/menu/{section}/{slug}",
+      "/menu/{section}/{slug}.md",
+      "/articles/{slug}",
+      "/articles/{slug}.md"
+    ],
+    "schema_types": ["MenuItem", "MenuSection", "Menu", "Restaurant"]
+  },
+  "discovery": {
+    "llms_txt": "# Sample Restaurant v0.04\n\nRestaurant v0.04 is a content engine for item pages, markdown, schema, sitemap, and article tie-ins.\n",
+    "robots_txt": "User-agent: *\nAllow: /\nSitemap: https://sample-restaurant-v004.example/sitemap.xml\n",
+    "canonical_url": "https://sample-restaurant-v004.example"
+  },
+  "schema_jsonld": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sample Restaurant v0.04",
+    "url": "https://sample-restaurant-v004.example",
+    "description": "Restaurant v0.04 turns a menu registry into item pages, markdown endpoints, schema, sitemap entries, and behind-the-dish stories.",
+    "servesCuisine": "California Coastal"
+  },
+  "worker": {
+    "name": "sample-restaurant-v004-afo",
+    "entry_point": "src/index.ts",
+    "compatibility_date": "2026-06-01",
+    "routes": [],
+    "bindings": {}
+  },
+  "repo": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "worker_path": "examples/sample-restaurant-v004/worker",
+    "bundle_path": "examples/sample-restaurant-v004/afo.site.bundle.json",
+    "receipts_path": "receipts"
+  },
+  "validation": { "passed": false, "validated_at": null, "validated_by": null, "checks": [], "errors": [], "warnings": [] },
+  "deployment": {
+    "deploy_mode": "preview_first",
+    "confirmed": false,
+    "environment": "preview",
+    "preview_url": "",
+    "production_url": "",
+    "last_deploy": null,
+    "deploy_receipts": []
+  },
+  "smoke_tests": {
+    "routes": [
+      { "path": "/", "expect_status": 200, "expect_contains": "Sample Restaurant v0.04" },
+      { "path": "/menu", "expect_status": 200, "expect_contains": "One menu registry" },
+      { "path": "/menu.md", "expect_status": 200, "expect_contains": "Menu" },
+      { "path": "/registry.json", "expect_status": 200, "expect_contains": "sections" },
+      { "path": "/items/101", "expect_status": 200, "expect_contains": "Seared Scallops" },
+      { "path": "/menu/starters/seared-scallops", "expect_status": 200, "expect_contains": "Seared Scallops" },
+      { "path": "/menu/starters/seared-scallops.md", "expect_status": 200, "expect_contains": "Behind the dish" },
+      { "path": "/articles/behind-the-seared-scallops", "expect_status": 200, "expect_contains": "Behind the Dish" },
+      { "path": "/health", "expect_status": 200, "expect_contains": "ok" },
+      { "path": "/llms.txt", "expect_status": 200, "expect_contains": "content engine" },
+      { "path": "/robots.txt", "expect_status": 200, "expect_contains": "User-agent" },
+      { "path": "/sitemap.xml", "expect_status": 200, "expect_contains": "urlset" },
+      { "path": "/schema.json", "expect_status": 200, "expect_contains": "Restaurant" }
+    ],
+    "last_smoke_test": null
+  },
+  "registry": { "registered": false, "registered_at": null, "tags": ["micro-seo-site", "restaurant", "restaurant-v004", "content-engine", "menu-registry"] },
+  "handoff": {
+    "created_by": "chatgpt-restaurant-v004-builder",
+    "last_updated_by": "chatgpt-github-mcp",
+    "next_action": "validate_then_preview_deploy",
+    "next_agent": "afo-mobile-terminal-mcp",
+    "notes": "Restaurant v0.04 content engine bundle is generated and preview-safe."
+  }
+}
