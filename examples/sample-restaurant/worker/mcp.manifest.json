@@ -1,0 +1,17 @@
+{
+  "name": "sample-restaurant-afo",
+  "version": "1.0.0",
+  "description": "Preview-safe sample restaurant Worker for AFO Site Bundle validation.",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-01",
+  "workers_dev": true,
+  "preview_only": true,
+  "production_routes": [],
+  "custom_domains": [],
+  "bindings": [],
+  "source_bundle": {
+    "schema": "afo.site.bundle",
+    "bundle_path": "examples/sample-restaurant/afo.site.bundle.json",
+    "worker_path": "examples/sample-restaurant/worker"
+  }
+}
