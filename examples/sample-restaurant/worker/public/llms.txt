@@ -1,0 +1,11 @@
+# Sample Restaurant
+
+Preview-safe restaurant website example for AFO Site Bundle Manifest v1.
+
+Important routes:
+- /
+- /health
+- /llms.txt
+- /robots.txt
+- /sitemap.xml
+- /schema.json
