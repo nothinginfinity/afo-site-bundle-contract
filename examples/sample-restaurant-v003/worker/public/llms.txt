@@ -1,0 +1,20 @@
+# Sample Restaurant v0.03
+
+A visual-first, preview-safe restaurant demo with real photo backgrounds, menu tabs, event packages, and a gallery snippet.
+
+## Visual capability
+- Remote hero background image
+- Image gallery snippet
+- Menu tabs: starters, mains, desserts
+- Event packages and calendar teaser
+
+## Routes
+- / text/html
+- /health application/json
+- /llms.txt text/plain
+- /robots.txt text/plain
+- /sitemap.xml application/xml
+- /schema.json application/json
+
+## Guardrails
+Preview only. No production routes. No custom domains. No account IDs. No secrets.
