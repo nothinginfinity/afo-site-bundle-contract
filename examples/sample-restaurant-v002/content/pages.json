@@ -1,0 +1,31 @@
+[
+  {
+    "slug": "/",
+    "title": "Sample Restaurant v0.02",
+    "meta_description": "Premium preview-safe restaurant demo for AFO sales workflows.",
+    "sections": [
+      {
+        "type": "premium_hero",
+        "headline": "Premium dining demo, ready for a sales call.",
+        "body": "Restaurant v0.02 is a business-ready preview site with premium styling, AI-readable routes, and AFO guardrails.",
+        "cta_label": "Explore menu",
+        "cta_url": "#menu"
+      },
+      {
+        "type": "menu_tabs",
+        "headline": "Featured dish cards",
+        "body": "Simulated category tabs and CSS gradient dish visuals keep the demo polished without external assets."
+      },
+      {
+        "type": "story",
+        "headline": "A sharper brand narrative",
+        "body": "Chef-led seasonal dining with private event and catering calls to action."
+      },
+      {
+        "type": "ai_routes",
+        "headline": "AI-readable routes panel",
+        "body": "The Worker exposes /health, /llms.txt, /robots.txt, /sitemap.xml, and /schema.json."
+      }
+    ]
+  }
+]
