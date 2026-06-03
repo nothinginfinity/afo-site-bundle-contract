@@ -1,15 +1,12 @@
-name = "capistrano-plumbing-site"
+name = "example-business-afo"
 main = "src/index.ts"
-compatibility_date = "2025-01-01"
+compatibility_date = "2026-06-01"
 
-# Custom domain is set in Cloudflare dashboard or via API
-# GitHub is source of truth — do not deploy manually from this file
-# Deploy only via AFO Mobile Terminal MCP
+# Preview-safe reference config.
+# GitHub is the source of truth.
+# Cloudflare is the runtime target only.
+# Do not add production routes, account_id, custom domains, or secrets here.
+# Deploy only through AFO Mobile Terminal MCP after explicit confirmation.
 
 [build]
 command = "npm run build"
-
-[[rules]]
-type = "ESModule"
-globs = ["**/*.ts"]
-fallthrough = true
