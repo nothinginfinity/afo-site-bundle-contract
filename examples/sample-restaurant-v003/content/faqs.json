@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What changed in Restaurant v0.03?",
+    "answer": "v0.03 adds a real photo hero, image gallery snippet, menu tabs for starters, mains, and desserts, and stronger event package CTAs."
+  },
+  {
+    "question": "Does v0.03 use external JavaScript?",
+    "answer": "No. The demo uses a single Cloudflare Worker file with inline CSS and no external JS libraries or frontend build step."
+  },
+  {
+    "question": "Is this production deployed?",
+    "answer": "No. It is preview-only and must not create production routes, custom domains, account IDs, or secrets."
+  }
+]
