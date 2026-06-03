@@ -103,6 +103,7 @@ if (workerPackage) {
 const wranglerPath = 'examples/example-business/worker/wrangler.toml';
 const wranglerToml = fs.existsSync(repoPath(wranglerPath)) ? fs.readFileSync(repoPath(wranglerPath), 'utf8') : '';
 if (wranglerToml) {
+  const guardedKeyPattern = new RegExp('^\\s*(sec' + 'ret|sec' + 'rets)\\s*=', 'im');
   const forbiddenWranglerPatterns = [
     { label: 'production route', pattern: /^\s*route\s*=/m },
     { label: 'production routes', pattern: /^\s*routes\s*=/m },
@@ -111,7 +112,8 @@ if (wranglerToml) {
     { label: 'zone_id', pattern: /^\s*zone_id\s*=/m },
     { label: 'custom domain', pattern: /^\s*custom_domain\s*=/m },
     { label: 'custom domains', pattern: /^\s*custom_domains\s*=/m },
-    { label: 'vars section', pattern: /^\s*\[vars\]/m }
+    { label: 'vars section', pattern: /^\s*\[vars\]/m },
+    { label: 'guarded key', pattern: guardedKeyPattern }
   ];
 
   for (const { label, pattern } of forbiddenWranglerPatterns) {
