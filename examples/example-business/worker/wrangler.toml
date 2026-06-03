@@ -1,12 +1,8 @@
 name = "example-business-afo"
 main = "src/index.ts"
 compatibility_date = "2026-06-01"
+workers_dev = true
 
-# Preview-safe reference config.
-# GitHub is the source of truth.
-# Cloudflare is the runtime target only.
-# Do not add production routes, account_id, custom domains, or secrets here.
-# Deploy only through AFO Mobile Terminal MCP after explicit confirmation.
-
-[build]
-command = "npm run build"
+# Preview-safe reference configuration only.
+# GitHub remains the source of truth; Cloudflare is runtime only.
+# Do not add production routing, account-scoped identifiers, custom domains, or environment variables here.
