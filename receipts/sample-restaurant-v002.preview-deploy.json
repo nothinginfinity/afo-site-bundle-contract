@@ -1,0 +1,179 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "version": "0.02",
+  "timestamp": "2026-06-03T20:15:31.903Z",
+  "dry_run": false,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "deployed": true,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "custom_domain_added": false,
+  "production_route_added": false,
+  "deployment_confirmed_changed": false,
+  "worker_slug": "sample-restaurant-v002-afo",
+  "script_name": "sample-restaurant-v002-afo",
+  "preview_url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/",
+  "baseline_untouched": {
+    "worker_slug": "sample-restaurant-afo",
+    "modified": false,
+    "deployed": false
+  },
+  "source": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "app_path": "apps/sample-restaurant-v002-afo",
+    "worker_path": "apps/sample-restaurant-v002-afo/worker.js",
+    "worker_blob_sha": "9da848298eab350c3e11927110970b7cf101b3bb",
+    "source_sha256": "sha256:8977a44a94dc119c2ba0f741bf4af4d6d30aeb488bef28d17344d9686ae86d95"
+  },
+  "validation": {
+    "transport_status": "ok",
+    "app_manifest_preview_safe": true,
+    "deploy_spec_preview_safe": true,
+    "manifest": {
+      "workers_dev": true,
+      "bindings": [],
+      "tools": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": []
+    },
+    "deploy_spec": {
+      "workers_dev": true,
+      "secrets_required": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": [],
+      "requires_confirmation": true
+    }
+  },
+  "deploy_tool": {
+    "name": "AFO_aa_worker_transport.deploy_worker_from_github",
+    "tool_worker": "afo-worker-transport-mcp",
+    "tool_version": "0.1.0",
+    "arguments": {
+      "owner": "nothinginfinity",
+      "repo": "afo-site-bundle-contract",
+      "branch": "main",
+      "worker_slug": "sample-restaurant-v002-afo",
+      "script_name": "sample-restaurant-v002-afo",
+      "bindings": [],
+      "confirm_deploy": true,
+      "write_receipt": true
+    }
+  },
+  "deploy_result": {
+    "ok": true,
+    "deployed": true,
+    "script_name": "sample-restaurant-v002-afo",
+    "binding_count": 0,
+    "bindings": [],
+    "deployed_at": "2026-06-03T20:15:31.903Z",
+    "transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-v002-afo/2026-06-03T20-15-31-903Z.transport.receipt.json",
+    "transport_receipt_commit_sha": "6a88dbde2c759830cffb3223c8e15704fc983afc"
+  },
+  "smoke_tests": {
+    "status": "attempted_detail_blocked_by_tooling",
+    "executed_by": [
+      "web.run open attempts",
+      "AFO Content Gateway health_check_content_stack",
+      "local container curl"
+    ],
+    "notes": [
+      "AFO Content Gateway accepted the six required preview route URLs and returned URL entries, but exposed only truncated snippets, not detailed HTTP status, content-type, or body marker results.",
+      "Direct browser/open attempts for the workers.dev route URLs were blocked by the browser tool context.",
+      "Local container curl could not resolve the workers.dev hostname from this runtime.",
+      "Because detailed route responses were not exposed, individual smoke checks are recorded as attempted but not independently asserted as passed."
+    ],
+    "routes": [
+      {
+        "path": "/",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/",
+        "expected_status": 200,
+        "expected_content_type": "text/html",
+        "expected_markers": ["Sample Restaurant v0.02", "Premium dining demo", "Featured dish cards", "AI-readable routes"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      },
+      {
+        "path": "/health",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/health",
+        "expected_status": 200,
+        "expected_content_type": "application/json",
+        "expected_markers": ["ok", "sample-restaurant-v002-afo"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      },
+      {
+        "path": "/llms.txt",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/llms.txt",
+        "expected_status": 200,
+        "expected_content_type": "text/plain",
+        "expected_markers": ["Sample Restaurant v0.02"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      },
+      {
+        "path": "/robots.txt",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/robots.txt",
+        "expected_status": 200,
+        "expected_content_type": "text/plain",
+        "expected_markers": ["User-agent"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      },
+      {
+        "path": "/sitemap.xml",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/sitemap.xml",
+        "expected_status": 200,
+        "expected_content_type": "application/xml",
+        "expected_markers": ["urlset"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      },
+      {
+        "path": "/schema.json",
+        "url": "https://sample-restaurant-v002-afo.jaredtechfit.workers.dev/schema.json",
+        "expected_status": 200,
+        "expected_content_type": "application/json",
+        "expected_markers": ["Restaurant"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
+      }
+    ]
+  },
+  "expected_live_content_from_source": {
+    "restaurant_v002": true,
+    "homepage_contains_premium_hero": true,
+    "homepage_contains_sticky_mobile_cta": true,
+    "homepage_contains_menu_tabs": true,
+    "homepage_contains_featured_dish_cards": true,
+    "homepage_contains_chef_story": true,
+    "homepage_contains_private_events_cta": true,
+    "homepage_contains_testimonial": true,
+    "homepage_contains_faq": true,
+    "homepage_contains_ai_routes_panel": true,
+    "homepage_contains_schema_discovery_callout": true,
+    "verification_basis": "committed app worker source deployed by Worker Transport; detailed live body checks blocked by available route tooling"
+  },
+  "safety": {
+    "sample_restaurant_afo_modified": false,
+    "sample_restaurant_afo_deployed": false,
+    "only_worker_redeployed": "sample-restaurant-v002-afo",
+    "production_route_created": false,
+    "custom_domain_added": false,
+    "account_id_added": false,
+    "secret_added": false,
+    "deployment_confirmed_changed": false,
+    "production_receipt_written": false
+  }
+}
