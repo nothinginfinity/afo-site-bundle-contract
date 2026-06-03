@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "/menu",
+    "title": "Restaurant v0.04 Menu Content Engine",
+    "meta_description": "Registry-driven menu with rich HTML, markdown, individual item routes, MenuItem schema, MenuSection schema, and article tie-ins.",
+    "sections": [
+      { "type": "registry_source", "source": "examples/sample-restaurant-v004/content/menu-items.json" },
+      { "type": "html_menu", "route": "/menu", "tabs": ["starters", "mains", "desserts"] },
+      { "type": "markdown_menu", "route": "/menu.md" },
+      { "type": "item_pages", "patterns": ["/items/{id}", "/menu/{section}/{slug}", "/menu/{section}/{slug}.md"] },
+      { "type": "schema", "schemas": ["MenuItem", "MenuSection", "Menu"] },
+      { "type": "articles", "route_pattern": "/articles/{slug}" }
+    ]
+  }
+]
