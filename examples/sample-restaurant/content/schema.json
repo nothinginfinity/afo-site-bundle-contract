@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sample Restaurant",
+  "url": "https://sample-restaurant.example",
+  "servesCuisine": "Seasonal American",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Juan Capistrano",
+    "addressRegion": "CA"
+  }
+}
