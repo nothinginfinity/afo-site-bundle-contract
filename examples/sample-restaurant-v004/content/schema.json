@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sample Restaurant v0.04",
+  "url": "https://sample-restaurant-v004.example",
+  "description": "Restaurant v0.04 turns a menu registry into item pages, markdown endpoints, schema, sitemap entries, and behind-the-dish stories.",
+  "servesCuisine": "California Coastal",
+  "telephone": "(949) 555-0404",
+  "hasMenu": {
+    "@type": "Menu",
+    "hasMenuSection": [
+      { "@type": "MenuSection", "name": "Starters" },
+      { "@type": "MenuSection", "name": "Mains" },
+      { "@type": "MenuSection", "name": "Desserts" }
+    ]
+  }
+}
