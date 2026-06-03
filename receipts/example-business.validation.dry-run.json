@@ -1,0 +1,64 @@
+{
+  "receipt_schema": "afo.mobile_terminal.validation_receipt",
+  "receipt_schema_version": "1.0.0",
+  "receipt_type": "validation_dry_run",
+  "generated_at": "2026-06-02T00:00:00Z",
+  "actor": "afo-mobile-terminal",
+  "dry_run": true,
+  "deployed": false,
+  "runtime_publish_attempted": false,
+  "source": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "ref": "main",
+    "bundle_path": "examples/example-business/afo.site.bundle.json",
+    "schema_path": "schema/afo.site.bundle.schema.json",
+    "worker_path": "examples/example-business/worker"
+  },
+  "result": {
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "checks": [
+    { "name": "bundle_schema_validation", "passed": true },
+    { "name": "bundle_schema_name", "passed": true, "actual": "afo.site.bundle" },
+    { "name": "bundle_schema_version", "passed": true, "actual": "1.0.0" },
+    { "name": "deployment_mode", "passed": true, "actual": "preview_first" },
+    { "name": "deployment_confirmed_false", "passed": true, "actual": false },
+    { "name": "deployment_environment_preview", "passed": true, "actual": "preview" },
+    { "name": "worker_routes_empty", "passed": true, "actual_count": 0 },
+    { "name": "worker_folder_present", "passed": true, "path": "examples/example-business/worker" },
+    { "name": "worker_required_files_present", "passed": true, "files": ["package.json", "wrangler.toml", "src/index.ts"] },
+    { "name": "wrangler_preview_safety", "passed": true, "forbidden_found": [] },
+    { "name": "wrangler_compatibility_date", "passed": true, "actual": "2026-06-01" },
+    { "name": "worker_scripts_safe", "passed": true },
+    { "name": "worker_required_routes", "passed": true, "routes": ["/", "/health", "/llms.txt", "/robots.txt", "/sitemap.xml", "/schema.json"] },
+    { "name": "worker_required_content_types", "passed": true }
+  ],
+  "preview_plan": {
+    "mode": "dry_run_only",
+    "allowed_command": "npm run preview",
+    "working_directory": "examples/example-business/worker",
+    "runtime_publish_blocked": true,
+    "deployment_confirmed_required_for_production": true,
+    "deployment_confirmed_current_value": false
+  },
+  "smoke_test_plan": {
+    "mode": "plan_only",
+    "requires_preview_url": true,
+    "routes": [
+      { "path": "/", "expected_status": 200, "expected_content_type": "text/html" },
+      { "path": "/health", "expected_status": 200, "expected_content_type": "application/json", "expected_body_marker": "ok" },
+      { "path": "/llms.txt", "expected_status": 200, "expected_content_type": "text/plain" },
+      { "path": "/robots.txt", "expected_status": 200, "expected_content_type": "text/plain" },
+      { "path": "/sitemap.xml", "expected_status": 200, "expected_content_type": "application/xml" },
+      { "path": "/schema.json", "expected_status": 200, "expected_content_type": "application/json" }
+    ]
+  },
+  "write_back": {
+    "intended_path": "receipts/example-business.validation.dry-run.json",
+    "command": "write_validation_receipt",
+    "status": "sample_committed"
+  }
+}
