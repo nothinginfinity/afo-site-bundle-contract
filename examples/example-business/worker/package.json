@@ -1,16 +1,18 @@
 {
-  "name": "capistrano-plumbing-site",
+  "name": "example-business-afo",
   "version": "1.0.0",
-  "description": "Cloudflare Worker for Capistrano Plumbing Co. micro SEO site",
+  "type": "module",
+  "description": "Preview-safe Cloudflare Worker reference implementation for AFO Site Bundle Manifest v1.",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --noEmit",
     "dev": "wrangler dev",
+    "preview": "wrangler dev --remote",
     "deploy": "echo 'Do not deploy manually. Use AFO Mobile Terminal MCP.' && exit 1"
   },
   "dependencies": {},
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.0.0",
+    "@cloudflare/workers-types": "^4.20250601.0",
     "typescript": "^5.0.0",
     "wrangler": "^3.0.0"
   }
