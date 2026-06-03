@@ -1,144 +1,102 @@
 {
-  "schema": "afo.site.bundle.v1",
+  "schema": "afo.site.bundle",
   "schema_version": "1.0.0",
   "bundle_id": "550e8400-e29b-41d4-a716-446655440000",
   "bundle_type": "micro_seo_site",
-  "status": "draft",
+  "status": "generated",
   "created_at": "2026-06-02T00:00:00Z",
   "updated_at": "2026-06-02T00:00:00Z",
-  "build_intent": "A local plumbing company in San Juan Capistrano needs a simple SEO site that ranks for emergency plumber searches and drives phone calls.",
+  "build_intent": "Create a small AI-readable local business website that supports local search discovery.",
   "client": {
-    "name": "Capistrano Plumbing Co.",
+    "name": "Example Business",
     "industry": "Home Services",
     "location": "San Juan Capistrano, CA",
-    "contact_email": "owner@capistranopiping.com"
+    "contact_email": "owner@example.com"
   },
   "site": {
-    "domain": "capistranopiping.com",
-    "title": "Capistrano Plumbing Co. — Emergency Plumber San Juan Capistrano",
-    "description": "Fast, reliable plumbing service in San Juan Capistrano. Available 24/7 for emergency repairs, drain cleaning, and water heater installation.",
+    "base_url": "https://example-business.com",
+    "domain": "example-business.com",
+    "title": "Example Business - Local Services",
+    "description": "Local service website example for AFO Site Bundle Manifest v1.",
     "language": "en"
   },
   "content": {
+    "services": ["Service one", "Service two"],
     "pages": [
       {
         "slug": "/",
         "title": "Home",
-        "meta_description": "Emergency plumber in San Juan Capistrano. Call now for 24/7 service.",
+        "meta_description": "Example local service website.",
         "sections": [
           {
             "type": "hero",
-            "headline": "San Juan Capistrano's Trusted Emergency Plumber",
-            "body": "Available 24/7. Fast response. Licensed & insured.",
-            "cta_label": "Call Now",
-            "cta_url": "tel:+19495550100"
-          },
-          {
-            "type": "services",
-            "headline": "Our Services",
-            "body": "Emergency repairs, drain cleaning, water heater installation, leak detection."
-          },
-          {
-            "type": "contact",
-            "headline": "Get In Touch",
-            "body": "Call us anytime or fill out the form below."
+            "headline": "Example Business Local Service Website",
+            "body": "A preview-safe reference website for the AFO Site Bundle contract.",
+            "cta_label": "Contact",
+            "cta_url": "/contact"
           }
         ]
       }
-    ]
+    ],
+    "articles": [],
+    "faqs": [],
+    "calls_to_action": []
   },
   "discovery": {
-    "primary_keyword": "emergency plumber San Juan Capistrano",
-    "secondary_keywords": [
-      "plumber near me",
-      "drain cleaning San Juan Capistrano",
-      "water heater repair Orange County"
-    ],
-    "og_title": "Capistrano Plumbing Co. — Emergency Plumber",
-    "og_description": "24/7 emergency plumbing in San Juan Capistrano. Fast response, licensed & insured.",
-    "robots": "index, follow",
-    "canonical_url": "https://capistranopiping.com"
+    "llms_txt": "# Example Business\n\nPreview-safe reference website for AFO Site Bundle Manifest v1.\n",
+    "robots_txt": "User-agent: *\nAllow: /\nSitemap: https://example-business.com/sitemap.xml\n",
+    "sitemap_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://example-business.com/</loc></url>\n</urlset>\n",
+    "canonical_url": "https://example-business.com"
   },
   "schema_jsonld": {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Capistrano Plumbing Co.",
-    "url": "https://capistranopiping.com",
-    "description": "Emergency plumber in San Juan Capistrano, CA. Available 24/7.",
-    "telephone": "+1-949-555-0100",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Juan Capistrano",
-      "addressRegion": "CA",
-      "addressCountry": "US"
-    }
+    "name": "Example Business",
+    "url": "https://example-business.com"
   },
   "worker": {
-    "name": "capistrano-plumbing-site",
+    "name": "example-business-afo",
     "entry_point": "src/index.ts",
-    "compatibility_date": "2025-01-01",
-    "routes": ["capistranopiping.com/*"],
-    "custom_domain": "capistranopiping.com"
+    "compatibility_date": "2026-06-01",
+    "routes": [],
+    "bindings": {}
   },
   "repo": {
     "owner": "nothinginfinity",
-    "name": "capistrano-plumbing-site",
+    "repo": "afo-site-bundle-contract",
     "branch": "main",
-    "worker_path": "worker",
-    "bundle_path": "afo.site.bundle.json"
+    "worker_path": "examples/example-business/worker",
+    "bundle_path": "examples/example-business/afo.site.bundle.json",
+    "receipts_path": "receipts",
+    "handoff_path": "docs/mcp-handoff.md"
   },
-  "validation": {
-    "passed": false,
-    "checked_at": null,
-    "checks": []
-  },
+  "validation": { "passed": false, "validated_at": null, "validated_by": null, "checks": [], "errors": [], "warnings": [] },
   "deployment": {
+    "deploy_mode": "preview_first",
     "confirmed": false,
-    "target": "production",
-    "deployed_at": null,
-    "deployed_by": null,
-    "cloudflare_worker_id": null,
-    "deploy_url": null,
-    "receipt_path": null
+    "environment": "preview",
+    "preview_url": "",
+    "production_url": "",
+    "last_deploy": null,
+    "deploy_receipts": []
   },
   "smoke_tests": {
-    "tests": [
-      {
-        "name": "homepage loads",
-        "url": "https://capistranopiping.com/",
-        "expected_status": 200,
-        "expected_content": "San Juan Capistrano"
-      },
-      {
-        "name": "robots.txt accessible",
-        "url": "https://capistranopiping.com/robots.txt",
-        "expected_status": 200
-      },
-      {
-        "name": "sitemap accessible",
-        "url": "https://capistranopiping.com/sitemap.xml",
-        "expected_status": 200
-      },
-      {
-        "name": "llms.txt accessible",
-        "url": "https://capistranopiping.com/llms.txt",
-        "expected_status": 200
-      }
+    "routes": [
+      { "path": "/", "expect_status": 200, "expect_contains": "Example Business" },
+      { "path": "/health", "expect_status": 200, "expect_contains": "ok" },
+      { "path": "/llms.txt", "expect_status": 200, "expect_contains": "Example Business" },
+      { "path": "/robots.txt", "expect_status": 200, "expect_contains": "User-agent" },
+      { "path": "/sitemap.xml", "expect_status": 200, "expect_contains": "urlset" },
+      { "path": "/schema.json", "expect_status": 200, "expect_contains": "LocalBusiness" }
     ],
-    "all_passed": null,
-    "ran_at": null
+    "last_smoke_test": null
   },
-  "registry": {
-    "registered": false,
-    "toolsmith_id": null,
-    "control_center_id": null,
-    "tags": ["micro-seo-site", "local-business", "home-services"]
-  },
+  "registry": { "registered": false, "registered_at": null, "tags": ["micro-seo-site", "local-business"] },
   "handoff": {
     "created_by": "afo-micro-seo-site-builder-mcp",
-    "last_updated_by": "afo-micro-seo-site-builder-mcp",
+    "last_updated_by": "chatgpt-github-mcp",
     "next_action": "validate_worker",
     "next_agent": "afo-mobile-terminal-mcp",
-    "notes": "Bundle is draft. Worker files committed to repo. Awaiting validation and operator confirmation before deploy."
+    "notes": "Bundle is generated and preview-safe. Validate before deployment."
   }
 }
