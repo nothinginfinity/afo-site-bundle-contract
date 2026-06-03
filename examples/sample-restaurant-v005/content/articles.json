@@ -1,0 +1,4 @@
+[
+  { "slug": "behind-the-seared-scallops", "item": "101", "title": "Behind the Dish: Seared Scallops", "summary": "How one coastal starter becomes a structured conversion asset.", "body": "The seared scallops page demonstrates HTML, markdown, menu.json, MenuItem schema, sitemap entries, and a future chat handoff from one menu row." },
+  { "slug": "menu-reserve-event-flow", "item": "201", "title": "Menu / Reserve / Event Flow", "summary": "Why the sticky CTA matters for restaurant conversion.", "body": "The persistent Menu/Reserve/Event button is designed to become a chatbot entry point backed by the restaurant D1 knowledge base." }
+]
