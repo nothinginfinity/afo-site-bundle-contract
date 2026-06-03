@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "/",
+    "title": "Sample Restaurant",
+    "meta_description": "Preview-safe sample restaurant website.",
+    "sections": [
+      {
+        "type": "hero",
+        "headline": "Seasonal Local Dining",
+        "body": "Sample Restaurant is a preview-safe reference bundle for AFO multi-client validation."
+      },
+      {
+        "type": "content",
+        "headline": "Fresh, simple, local",
+        "body": "This sample content demonstrates restaurant pages without representing a live production site."
+      }
+    ]
+  }
+]
