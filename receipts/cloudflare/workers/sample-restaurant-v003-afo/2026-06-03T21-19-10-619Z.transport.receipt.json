@@ -1,0 +1,16 @@
+{
+  "schema": "afo.transport.receipt.v1",
+  "script_name": "sample-restaurant-v003-afo",
+  "created_at": "2026-06-03T21:19:10.850Z",
+  "transport": "github_to_cloudflare",
+  "worker_slug": "sample-restaurant-v003-afo",
+  "source_path": "apps/sample-restaurant-v003-afo/worker.js",
+  "source_sha256": "sha256:533f1d4e211d28a9068c9e2398430fdfbb4a87911897e2782f9285eb4262736d",
+  "deploy_result": {
+    "deployed": true,
+    "script_name": "sample-restaurant-v003-afo",
+    "binding_count": 0,
+    "bindings": [],
+    "deployed_at": "2026-06-03T21:19:10.619Z"
+  }
+}
