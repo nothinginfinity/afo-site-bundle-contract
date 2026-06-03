@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Is Restaurant v0.02 a live restaurant?",
+    "answer": "No. It is a preview-safe AFO demo designed for validation, sales demos, and workers.dev preview deployment."
+  },
+  {
+    "question": "Does v0.02 create production routes or custom domains?",
+    "answer": "No. Production routes, custom domains, account IDs, secrets, and production deploy commands remain blocked."
+  },
+  {
+    "question": "What is improved compared with the baseline?",
+    "answer": "Restaurant v0.02 adds a premium hero, sticky mobile CTA, menu category tabs, dish cards, chef/story section, events CTA, testimonial section, FAQ accordion, route panel, and schema/discovery callout."
+  }
+]
