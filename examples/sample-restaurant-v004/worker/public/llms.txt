@@ -1,0 +1,16 @@
+# Sample Restaurant v0.04
+
+Restaurant v0.04 is a content engine: a menu registry generates HTML menu pages, Markdown pages, item routes, MenuItem schema, MenuSection schema, sitemap entries, and behind-the-dish articles.
+
+## Key routes
+- /menu rich HTML menu
+- /menu.md markdown menu
+- /registry.json source-of-truth registry
+- /items/101 item page by ID
+- /items/101?format=md item markdown
+- /menu/starters/seared-scallops clean item route
+- /menu/starters/seared-scallops.md clean markdown route
+- /articles/behind-the-seared-scallops article tie-in
+
+## Guardrails
+Preview only. No production routes. No custom domains. No account IDs. No secrets.
