@@ -1,1 +1,12 @@
-{"name":"sample-restaurant-afo","version":"1.0.0","main":"worker.js","compatibility_date":"2026-06-01","workers_dev":true,"bindings":[],"preview_only":true,"production_routes":[],"custom_domains":[]}
+{
+  "name": "sample-restaurant-afo",
+  "version": "1.0.0",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-01",
+  "workers_dev": true,
+  "bindings": [],
+  "tools": [],
+  "preview_only": true,
+  "production_routes": [],
+  "custom_domains": []
+}
