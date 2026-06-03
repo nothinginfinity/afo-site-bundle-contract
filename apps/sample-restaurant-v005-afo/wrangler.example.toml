@@ -1,0 +1,7 @@
+name = "sample-restaurant-v005-afo"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+workers_dev = true
+
+# Preview-only conversion content-engine app mirror.
+# Do not add routes, account IDs, custom domains, or secrets.
