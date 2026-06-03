@@ -1,0 +1,36 @@
+{
+  "template_id": "restaurant-v1",
+  "name": "Restaurant Template v1",
+  "version": "1.0.0",
+  "description": "Preview-safe Cloudflare Worker restaurant website template for AFO Site Bundle demos.",
+  "entry_template": "worker.template.js",
+  "sample_data": "sample-data/sample-restaurant.json",
+  "sample_output_dir": "sample-output",
+  "generator": "scripts/generate-restaurant-template.mjs",
+  "runtime": "cloudflare-worker",
+  "build_system_required": false,
+  "external_images_allowed": false,
+  "external_js_allowed": false,
+  "routes": ["/", "/health", "/llms.txt", "/robots.txt", "/sitemap.xml", "/schema.json"],
+  "guardrails": {
+    "preview_only": true,
+    "workers_dev": true,
+    "bindings": [],
+    "production_routes": [],
+    "custom_domains": [],
+    "account_ids": [],
+    "secrets": [],
+    "deployment_confirmed": false
+  },
+  "required_sections": [
+    "premium hero section",
+    "visual menu cards",
+    "CSS gradient image placeholders",
+    "hours/location section",
+    "reservation/contact CTA",
+    "FAQ accordion",
+    "AI-readable routes panel",
+    "schema/discovery callout",
+    "mobile responsive layout"
+  ]
+}
