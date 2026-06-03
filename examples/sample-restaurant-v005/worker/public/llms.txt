@@ -1,0 +1,17 @@
+# Sample Restaurant v0.05
+
+Restaurant v0.05 is a conversion-focused content engine with a sticky Menu/Reserve/Event CTA, menu.json discovery, deep schema, testimonials, accessibility, and an A/B dark preview.
+
+## Key routes
+- /menu rich HTML menu
+- /menu?variant=dark A/B dark preview
+- /menu.json full structured menu for agents
+- /schema.json Restaurant/Menu/MenuSection/MenuItem/Offer/Review schema
+- /items/101 item page by ID
+- /menu/starters/seared-scallops clean item route
+
+## Future hook
+The Menu/Reserve/Event CTA is reserved for a future chat entry point backed by the business D1 knowledge base.
+
+## Guardrails
+Preview only. No production routes. No custom domains. No account IDs. No secrets.
