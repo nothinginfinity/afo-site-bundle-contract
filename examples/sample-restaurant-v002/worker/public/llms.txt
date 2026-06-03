@@ -1,0 +1,18 @@
+# Sample Restaurant v0.02
+
+A premium, preview-safe restaurant demo for AFO Restaurant v0.02.
+
+## Routes
+- / text/html
+- /health application/json
+- /llms.txt text/plain
+- /robots.txt text/plain
+- /sitemap.xml application/xml
+- /schema.json application/json
+
+## Guardrails
+- Preview only
+- No production routes
+- No custom domains
+- No account IDs
+- No secrets
