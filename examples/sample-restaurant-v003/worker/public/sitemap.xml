@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sample-restaurant-v003.example/</loc></url>
+  <url><loc>https://sample-restaurant-v003.example/health</loc></url>
+  <url><loc>https://sample-restaurant-v003.example/llms.txt</loc></url>
+  <url><loc>https://sample-restaurant-v003.example/robots.txt</loc></url>
+  <url><loc>https://sample-restaurant-v003.example/sitemap.xml</loc></url>
+  <url><loc>https://sample-restaurant-v003.example/schema.json</loc></url>
+</urlset>
