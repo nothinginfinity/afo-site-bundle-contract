@@ -1,125 +1,74 @@
-# AFO Site Bundle Contract
+# AFO Site Bundle Manifest v1
 
-**Version:** 1.0  
-**Status:** Active  
-**Maintainer:** AFO / Jared
+Schema: `afo.site.bundle`
+Version: `1.0.0`
+Canonical file: `afo.site.bundle.json`
 
----
+This repo defines the shared contract between website generation and deployment across the AFO ecosystem.
 
-## What Is This?
+GitHub is the source of truth. Cloudflare is only the runtime target.
 
-This repo defines the **AFO Site Bundle Manifest v1** — the shared contract used between:
+Production deployment requires `deployment.confirmed = true`.
 
-- **AFO Micro SEO Site Builder MCP** — generates the bundle and commits Worker files to GitHub
-- **AFO Mobile Terminal MCP** — validates, previews, deploys, smoke-tests, and writes receipts
-- **AFO Mobile Deploy MCP** — executes the actual Cloudflare deployment
+## Participants
 
-> **GitHub is the source of truth. Cloudflare is only the deployment and runtime target.**
->
-> Nothing is deployed to production unless `deployment.confirmed = true`.
-
----
-
-## Architecture
-
-```
-iPhone
-→ AFO Mobile Terminal MCP
-→ Cloudflare service binding
-→ AFO Mobile Deploy MCP
-→ GitHub source-of-truth
-→ Cloudflare Workers runtime
-→ smoke tests
-→ GitHub deployment receipts
-```
-
----
+| System | Role |
+|---|---|
+| AFO Micro SEO Site Builder MCP | Generates the bundle, content, discovery files, schema, and Worker source. |
+| AFO Mobile Terminal MCP | Validates, previews, smoke-tests, registers, and writes receipts. |
+| AFO Mobile Deploy MCP | Executes Cloudflare Worker deployment after confirmation. |
+| GitHub | Source of truth for contract, source files, generated bundles, and receipts. |
+| Cloudflare Workers | Runtime target that serves the site. |
 
 ## Workflow
 
-1. **AFO Micro SEO Builder** generates `afo.site.bundle.json`.
+1. AFO Micro SEO Builder generates `afo.site.bundle.json` and Worker files.
 2. The bundle and Worker files are committed to GitHub.
-3. **AFO Mobile Terminal** validates the Worker.
-4. **AFO Mobile Terminal** previews the deploy.
-5. **Nothing deploys to production** unless `deployment.confirmed = true`.
-6. After deploy, smoke tests run automatically.
-7. Receipts are written back to GitHub in `/receipts/`.
+3. AFO Mobile Terminal validates the bundle and Worker.
+4. AFO Mobile Terminal creates a preview deployment.
+5. Production deployment requires `deployment.confirmed = true`.
+6. After deployment, smoke tests run.
+7. Receipts are written back to GitHub under `/receipts/`.
 
----
+## Required Manifest Sections
 
-## Repo Layout
+- `schema`
+- `schema_version`
+- `bundle_id`
+- `bundle_type`
+- `status`
+- `created_at`
+- `updated_at`
+- `build_intent`
+- `client`
+- `site`
+- `content`
+- `discovery`
+- `schema_jsonld`
+- `worker`
+- `repo`
+- `validation`
+- `deployment`
+- `smoke_tests`
+- `registry`
+- `handoff`
 
-```
-afo-site-bundle-contract/
-├── README.md                          # This file
-├── schema/
-│   └── afo.site.bundle.schema.json    # JSON Schema for the manifest
-├── examples/
-│   └── example-business/
-│       ├── afo.site.bundle.json        # Example manifest
-│       └── worker/
-│           ├── wrangler.toml
-│           ├── package.json
-│           ├── src/index.ts
-│           └── public/
-│               ├── llms.txt
-│               ├── robots.txt
-│               └── sitemap.xml
-├── docs/
-│   ├── lifecycle.md                   # Full bundle lifecycle
-│   ├── mcp-handoff.md                 # How MCPs hand off the bundle
-│   ├── repo-layout.md                 # Expected GitHub repo structure
-│   └── cloudflare-deploy-notes.md     # Cloudflare-specific deploy notes
-└── receipts/
-    └── .gitkeep                       # Deployment receipts written here
-```
+## Lifecycle States
 
----
+`draft -> generated -> validated -> preview_ready -> preview_deployed -> smoke_tested -> production_ready -> production_deployed -> registered -> receipted`
 
-## Manifest Top-Level Sections
+`failed` may be used for any failed validation, deployment, smoke-test, registry, or receipt step.
 
-| Section | Purpose |
-|---|---|
-| `schema` | Schema identifier and version |
-| `schema_version` | Semver string |
-| `bundle_id` | Unique bundle UUID |
-| `bundle_type` | e.g. `micro_seo_site` |
-| `status` | `draft` \| `ready` \| `deployed` \| `failed` |
-| `created_at` | ISO 8601 timestamp |
-| `updated_at` | ISO 8601 timestamp |
-| `build_intent` | Human-readable description of what this site does |
-| `client` | Business/client info |
-| `site` | Domain, title, description |
-| `content` | Pages, copy blocks |
-| `discovery` | SEO, meta, keywords |
-| `schema_jsonld` | JSON-LD structured data |
-| `worker` | Cloudflare Worker config |
-| `repo` | GitHub repo details |
-| `validation` | Pre-deploy validation results |
-| `deployment` | Deploy config — `confirmed` defaults to `false` |
-| `smoke_tests` | Post-deploy test definitions |
-| `registry` | Toolsmith / control center registration |
-| `handoff` | MCP handoff metadata |
-
----
-
-## Key Rule
+## Safety Rule
 
 ```json
-"deployment": {
-  "confirmed": false
+{
+  "deployment": {
+    "deploy_mode": "preview_first",
+    "confirmed": false,
+    "environment": "preview"
+  }
 }
 ```
 
-**`confirmed` must be explicitly set to `true` by the operator (via AFO Mobile Terminal) before any production deploy runs.** The deploy MCP will refuse to deploy if this field is `false` or missing.
-
----
-
-## Contributing / Extending
-
-This contract is designed to be extended by other LLMs and MCPs. Keep additions backward-compatible:
-
-- Add new top-level sections rather than modifying existing ones
-- Increment `schema_version` on any breaking change
-- Update `schema/afo.site.bundle.schema.json` to match
-- Add an example in `examples/` for any new bundle type
+`deployment.confirmed` must be explicitly set to `true` before production deployment.
