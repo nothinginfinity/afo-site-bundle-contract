@@ -1,0 +1,59 @@
+{
+  "schema": "afo.transport.receipt.v1",
+  "script_name": "sample-restaurant-afo",
+  "created_at": "2026-06-03T15:20:51.554Z",
+  "receipt_type": "preview_deploy",
+  "dry_run": false,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "deployed": true,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "custom_domain_added": false,
+  "production_route_added": false,
+  "deployment_confirmed_changed": false,
+  "worker_slug": "sample-restaurant-afo",
+  "preview_url": "https://sample-restaurant-afo.jaredtechfit.workers.dev",
+  "source": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "bundle_path": "examples/sample-restaurant/afo.site.bundle.json",
+    "worker_path": "examples/sample-restaurant/worker",
+    "app_path": "apps/sample-restaurant-afo"
+  },
+  "deploy_tool": "afo-worker-transport-mcp",
+  "deploy_result": {
+    "deployed": true,
+    "script_name": "sample-restaurant-afo",
+    "binding_count": 0,
+    "bindings": [],
+    "deployed_at": "2026-06-03T15:19:09.084Z",
+    "source_sha256": "sha256:f3b9f32ecb1fede03de90158522a7885d8186e09f8737fbf8f521062733ec353"
+  },
+  "manifest": {
+    "name": "sample-restaurant-afo",
+    "version": "1.0.0",
+    "main": "worker.js",
+    "compatibility_date": "2026-06-01",
+    "workers_dev": true,
+    "bindings": [],
+    "tools": [],
+    "preview_only": true,
+    "production_routes": [],
+    "custom_domains": []
+  },
+  "smoke_tests": {
+    "status": "pending",
+    "routes": [
+      "/",
+      "/health",
+      "/llms.txt",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/schema.json"
+    ]
+  },
+  "generated_at": "2026-06-03T15:19:09.084Z",
+  "actor": "afo-mobile-terminal-mcp"
+}
