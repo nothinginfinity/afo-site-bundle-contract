@@ -1,0 +1,118 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "version": "0.05",
+  "timestamp": "2026-06-03T23:49:32.538Z",
+  "dry_run": false,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "deployed": true,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "custom_domain_added": false,
+  "production_route_added": false,
+  "deployment_confirmed_changed": false,
+  "worker_slug": "sample-restaurant-v005-afo",
+  "script_name": "sample-restaurant-v005-afo",
+  "preview_url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/",
+  "source": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "app_path": "apps/sample-restaurant-v005-afo",
+    "worker_path": "apps/sample-restaurant-v005-afo/worker.js",
+    "worker_blob_sha": "054d03d5a9694d7a4da70875fa2fc9fbbb75c4a6",
+    "source_sha256": "sha256:5f28af903c67c5ab6e5a1307e1ae58c28923d8f2cd31c2dff5adabc8c7494ee0"
+  },
+  "validation": {
+    "transport_status": "ok",
+    "app_manifest_preview_safe": true,
+    "deploy_spec_preview_safe": true,
+    "manifest": {
+      "workers_dev": true,
+      "bindings": [],
+      "tools": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": []
+    },
+    "deploy_spec": {
+      "workers_dev": true,
+      "secrets_required": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": [],
+      "requires_confirmation": true
+    }
+  },
+  "deploy_tool": {
+    "name": "AFO_aa_worker_transport.deploy_worker_from_github",
+    "tool_worker": "afo-worker-transport-mcp",
+    "tool_version": "0.1.0",
+    "arguments": {
+      "owner": "nothinginfinity",
+      "repo": "afo-site-bundle-contract",
+      "branch": "main",
+      "worker_slug": "sample-restaurant-v005-afo",
+      "script_name": "sample-restaurant-v005-afo",
+      "bindings": [],
+      "confirm_deploy": true,
+      "write_receipt": true
+    }
+  },
+  "deploy_result": {
+    "ok": true,
+    "deployed": true,
+    "script_name": "sample-restaurant-v005-afo",
+    "binding_count": 0,
+    "bindings": [],
+    "deployed_at": "2026-06-03T23:49:32.538Z",
+    "transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-v005-afo/2026-06-03T23-49-32-538Z.transport.receipt.json",
+    "transport_receipt_commit_sha": "56943406f21fb9107b58f6b77213a3a52bf5d770"
+  },
+  "conversion_features": {
+    "sticky_cta_label": "Menu/Reserve/Event",
+    "future_chatbot_hook": "D1 knowledge base chat entry point",
+    "menu_json_endpoint": "/menu.json",
+    "dark_mode_ab_preview": "/menu?variant=dark",
+    "testimonial_carousel": true,
+    "testimonial_count": 4,
+    "accessibility": ["ARIA tab roles", "labeled testimonial region", "alt text", "lazy images"],
+    "performance": ["webp image parameters", "loading=lazy", "decoding=async"],
+    "schema_depth": ["Restaurant", "Menu", "MenuSection", "MenuItem", "Offer", "Review"]
+  },
+  "smoke_tests": {
+    "status": "attempted_detail_blocked_by_tooling",
+    "executed_by": ["AFO Content Gateway health_check_content_stack", "web.run open attempts", "local container curl"],
+    "notes": [
+      "AFO Content Gateway accepted all tested v0.05 route URLs and returned route entries, but exposed only truncated snippets, not detailed HTTP status, content-type, or body marker results.",
+      "Direct web/open attempts for derived workers.dev route URLs were blocked by browser tool context.",
+      "Local container curl could not resolve the workers.dev hostname from this runtime.",
+      "Because detailed route responses were not exposed, individual smoke checks are recorded as attempted but not independently asserted as passed."
+    ],
+    "routes": [
+      { "path": "/", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/", "expected_markers": ["Sample Restaurant v0.05"], "attempted": true, "passed": null },
+      { "path": "/menu", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/menu", "expected_markers": ["Menu/Reserve/Event", "Starters", "Mains", "Desserts"], "attempted": true, "passed": null },
+      { "path": "/menu?variant=dark", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/menu?variant=dark", "expected_markers": ["Dark A/B preview"], "attempted": true, "passed": null },
+      { "path": "/menu.json", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/menu.json", "expected_markers": ["sections", "items", "conversion"], "attempted": true, "passed": null },
+      { "path": "/schema.json", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/schema.json", "expected_markers": ["Restaurant", "Menu", "MenuSection", "MenuItem", "Offer", "Review"], "attempted": true, "passed": null },
+      { "path": "/items/101", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/items/101", "expected_markers": ["Seared Scallops"], "attempted": true, "passed": null },
+      { "path": "/menu/starters/seared-scallops", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/menu/starters/seared-scallops", "expected_markers": ["Seared Scallops"], "attempted": true, "passed": null },
+      { "path": "/health", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/health", "expected_markers": ["ok", "0.05"], "attempted": true, "passed": null },
+      { "path": "/llms.txt", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/llms.txt", "expected_markers": ["Menu/Reserve/Event", "D1 knowledge base"], "attempted": true, "passed": null },
+      { "path": "/robots.txt", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/robots.txt", "expected_markers": ["User-agent"], "attempted": true, "passed": null },
+      { "path": "/sitemap.xml", "url": "https://sample-restaurant-v005-afo.jaredtechfit.workers.dev/sitemap.xml", "expected_markers": ["urlset"], "attempted": true, "passed": null }
+    ]
+  },
+  "safety": {
+    "prior_versions_modified": false,
+    "prior_versions_deployed": false,
+    "only_worker_redeployed": "sample-restaurant-v005-afo",
+    "production_route_created": false,
+    "custom_domain_added": false,
+    "account_id_added": false,
+    "secret_added": false,
+    "deployment_confirmed_changed": false,
+    "production_receipt_written": false
+  }
+}
