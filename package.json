@@ -8,6 +8,7 @@
     "validate": "node scripts/validate-bundle.mjs",
     "mobile-terminal:dry-run": "node scripts/mobile-terminal-dry-run.mjs",
     "mobile-terminal:write-dry-run-receipt": "node scripts/mobile-terminal-dry-run.mjs --write-receipt",
+    "generate:restaurant": "node scripts/generate-restaurant-template.mjs",
     "check": "npm run validate && npm run mobile-terminal:dry-run && npm --prefix examples/example-business/worker run build"
   },
   "devDependencies": {
