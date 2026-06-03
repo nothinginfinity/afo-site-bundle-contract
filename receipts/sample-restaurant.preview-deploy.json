@@ -1,10 +1,7 @@
 {
-  "receipt_schema": "afo.mobile_terminal.preview_deploy_receipt",
-  "receipt_schema_version": "1.0.0",
   "receipt_type": "preview_deploy",
-  "generated_at": "2026-06-03T15:35:00.000Z",
-  "actor": "afo-mobile-terminal-mcp",
-  "deploy_tool_used": "afo-worker-transport-mcp",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "timestamp": "2026-06-03T17:10:35.033Z",
   "dry_run": false,
   "preview_deploy": true,
   "production_deploy": false,
@@ -14,86 +11,146 @@
   "custom_domain_added": false,
   "production_route_added": false,
   "deployment_confirmed_changed": false,
+  "worker_slug": "sample-restaurant-afo",
+  "script_name": "sample-restaurant-afo",
+  "preview_url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/",
   "source": {
     "owner": "nothinginfinity",
     "repo": "afo-site-bundle-contract",
     "branch": "main",
-    "bundle_path": "examples/sample-restaurant/afo.site.bundle.json",
-    "worker_path": "examples/sample-restaurant/worker",
-    "app_path": "apps/sample-restaurant-afo"
+    "app_path": "apps/sample-restaurant-afo",
+    "worker_path": "apps/sample-restaurant-afo/worker.js",
+    "source_commit": "e1d2b16c96f770a4358fb74c300d429c8616369e",
+    "worker_blob_sha": "f59a1ca728b2446ba9f45f2b6f75d02c32b5d643",
+    "source_sha256": "sha256:55ff354ba123db4f108502ec5ece9b830443fedfaed020c7ffeb64f7924e3e27"
   },
-  "worker_slug": "sample-restaurant-afo",
-  "script_name": "sample-restaurant-afo",
-  "cloudflare_worker_name": "sample-restaurant-afo",
-  "preview_url": "https://sample-restaurant-afo.jaredtechfit.workers.dev",
+  "validation": {
+    "transport_status": "ok",
+    "app_manifest_preview_safe": true,
+    "deploy_spec_preview_safe": true,
+    "valid": true,
+    "notes": [
+      "Worker Transport service reported status ok before deploy.",
+      "App manifest retained workers_dev true, preview_only true, empty bindings, empty tools, empty production_routes, and empty custom_domains.",
+      "Deploy spec retained workers_dev true, preview_only true, empty production_routes, empty custom_domains, and secrets_required empty."
+    ]
+  },
+  "deploy_spec": {
+    "script_name": "sample-restaurant-afo",
+    "workers_dev": true,
+    "bindings": [],
+    "preview_only": true,
+    "production_routes": [],
+    "custom_domains": [],
+    "secrets_required": [],
+    "account_id_added": false
+  },
+  "deploy_tool": {
+    "name": "AFO_aa_worker_transport.deploy_worker_from_github",
+    "tool_worker": "afo-worker-transport-mcp",
+    "tool_version": "0.1.0",
+    "arguments": {
+      "owner": "nothinginfinity",
+      "repo": "afo-site-bundle-contract",
+      "branch": "main",
+      "worker_slug": "sample-restaurant-afo",
+      "script_name": "sample-restaurant-afo",
+      "bindings": [],
+      "confirm_deploy": true,
+      "write_receipt": true
+    }
+  },
   "deploy_result": {
+    "ok": true,
     "deployed": true,
     "script_name": "sample-restaurant-afo",
     "binding_count": 0,
     "bindings": [],
-    "deployed_at": "2026-06-03T15:19:09.084Z",
-    "source_sha256": "sha256:f3b9f32ecb1fede03de90158522a7885d8186e09f8737fbf8f521062733ec353"
+    "deployed_at": "2026-06-03T17:10:35.033Z",
+    "transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-afo/2026-06-03T17-10-35-033Z.transport.receipt.json",
+    "transport_receipt_commit_sha": "7ec88bada9067a107b4eb3a0ed5f917ed69c91da"
   },
   "smoke_tests": {
-    "passed": true,
+    "executed_by": "AFO Content Gateway health_check_content_stack plus external browser/container attempts",
+    "status": "partially_blocked_by_tooling",
+    "notes": [
+      "Content Gateway accepted a six-URL health check request and returned URL entries for all six required preview routes, but the tool response exposed only truncated snippets and not the detailed status/content-type fields.",
+      "Direct browser/open attempts and local container curl attempts were blocked or could not resolve the workers.dev hostname from this runtime.",
+      "Because detailed route responses were not exposed, individual smoke checks are recorded as attempted but not independently asserted as passed in this canonical receipt."
+    ],
     "routes": [
       {
         "path": "/",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/",
-        "ok": true,
-        "status": 200,
-        "content_type": "text/html; charset=utf-8",
-        "expected_contains": "Sample Restaurant"
+        "expected_status": 200,
+        "expected_content_type": "text/html",
+        "expected_markers": ["Sample Restaurant", "Menu highlights", "Hours", "Preview FAQ", "AI-readable routes", "Discovery files"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       },
       {
         "path": "/health",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/health",
-        "ok": true,
-        "status": 200,
-        "content_type": "application/json; charset=utf-8",
-        "expected_contains": "ok"
+        "expected_status": 200,
+        "expected_content_type": "application/json",
+        "expected_markers": ["ok"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       },
       {
         "path": "/llms.txt",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/llms.txt",
-        "ok": true,
-        "status": 200,
-        "content_type": "text/plain; charset=utf-8",
-        "expected_contains": "Sample Restaurant"
+        "expected_status": 200,
+        "expected_content_type": "text/plain",
+        "expected_markers": ["Sample Restaurant"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       },
       {
         "path": "/robots.txt",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/robots.txt",
-        "ok": true,
-        "status": 200,
-        "content_type": "text/plain; charset=utf-8",
-        "expected_contains": "User-agent"
+        "expected_status": 200,
+        "expected_content_type": "text/plain",
+        "expected_markers": ["User-agent"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       },
       {
         "path": "/sitemap.xml",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/sitemap.xml",
-        "ok": true,
-        "status": 200,
-        "content_type": "application/xml; charset=utf-8",
-        "expected_contains": "urlset"
+        "expected_status": 200,
+        "expected_content_type": "application/xml",
+        "expected_markers": ["urlset"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       },
       {
         "path": "/schema.json",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/schema.json",
-        "ok": true,
-        "status": 200,
-        "content_type": "application/json; charset=utf-8",
-        "expected_contains": "Restaurant"
+        "expected_status": 200,
+        "expected_content_type": "application/json",
+        "expected_markers": ["Restaurant"],
+        "observed": "attempted_via_content_gateway_and_browser",
+        "passed": null
       }
     ]
   },
+  "refreshed_ui_content_expected": {
+    "homepage_contains_sample_restaurant": true,
+    "homepage_contains_menu_highlights": true,
+    "homepage_contains_hours": true,
+    "homepage_contains_preview_faq": true,
+    "homepage_contains_ai_readable_routes_or_discovery_files": true,
+    "verification_status": "expected_from_committed_source_and_redeploy; live response detail blocked by tool runtime"
+  },
   "safety": {
-    "no_client_custom_domain": true,
-    "no_production_route": true,
-    "no_account_id_added": true,
-    "no_secret_added": true,
-    "deployment_confirmed_remains_false": true,
-    "example_business_not_deployed": true,
-    "only_sample_restaurant_preview_deployed": true
+    "example_business_deployed": false,
+    "only_worker_redeployed": "sample-restaurant-afo",
+    "production_route_created": false,
+    "custom_domain_added": false,
+    "account_id_added": false,
+    "secret_added": false,
+    "deployment_confirmed_changed": false,
+    "production_receipt_written": false
   }
 }
