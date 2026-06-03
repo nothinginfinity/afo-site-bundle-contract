@@ -1,0 +1,14 @@
+{
+  "schema": "afo.worker.deploy.spec.v1",
+  "worker_slug": "sample-restaurant-v004-afo",
+  "script_name": "sample-restaurant-v004-afo",
+  "source_path": "apps/sample-restaurant-v004-afo/worker.js",
+  "manifest_path": "apps/sample-restaurant-v004-afo/mcp.manifest.json",
+  "compatibility_date": "2026-06-01",
+  "workers_dev": true,
+  "secrets_required": [],
+  "preview_only": true,
+  "production_routes": [],
+  "custom_domains": [],
+  "requires_confirmation": true
+}
