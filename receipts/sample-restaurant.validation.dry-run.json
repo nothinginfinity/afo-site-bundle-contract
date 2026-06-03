@@ -1,0 +1,236 @@
+{
+  "receipt_schema": "afo.mobile_terminal.validation_receipt",
+  "receipt_schema_version": "1.0.0",
+  "receipt_type": "validation_dry_run",
+  "generated_at": "2026-06-03T05:28:56.360Z",
+  "actor": "afo-mobile-terminal-mcp",
+  "invocation_method": "GET guarded action",
+  "dry_run": true,
+  "deployed": false,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": false,
+  "source": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "ref": "main",
+    "bundle_path": "examples/sample-restaurant/afo.site.bundle.json",
+    "schema_path": "schema/afo.site.bundle.schema.json",
+    "worker_path": "examples/sample-restaurant/worker",
+    "receipt_path": "receipts/sample-restaurant.validation.dry-run.json"
+  },
+  "result": {
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "checks": [
+    {
+      "name": "schema_file_loaded",
+      "passed": true,
+      "path": "schema/afo.site.bundle.schema.json"
+    },
+    {
+      "name": "bundle_file_loaded",
+      "passed": true,
+      "path": "examples/sample-restaurant/afo.site.bundle.json"
+    },
+    {
+      "name": "bundle_schema_validation",
+      "passed": true,
+      "schema_title": "AFO Site Bundle Manifest v1"
+    },
+    {
+      "name": "bundle_schema_name",
+      "passed": true,
+      "actual": "afo.site.bundle"
+    },
+    {
+      "name": "bundle_schema_version",
+      "passed": true,
+      "actual": "1.0.0"
+    },
+    {
+      "name": "deployment_mode",
+      "passed": true,
+      "actual": "preview_first"
+    },
+    {
+      "name": "deployment_confirmed_false",
+      "passed": true,
+      "actual": false
+    },
+    {
+      "name": "deployment_environment_preview",
+      "passed": true,
+      "actual": "preview"
+    },
+    {
+      "name": "worker_routes_empty",
+      "passed": true,
+      "actual_count": 0
+    },
+    {
+      "name": "worker_file_package.json",
+      "passed": true,
+      "path": "examples/sample-restaurant/worker/package.json"
+    },
+    {
+      "name": "worker_file_wrangler.toml",
+      "passed": true,
+      "path": "examples/sample-restaurant/worker/wrangler.toml"
+    },
+    {
+      "name": "worker_file_src/index.ts",
+      "passed": true,
+      "path": "examples/sample-restaurant/worker/src/index.ts"
+    },
+    {
+      "name": "worker_package_json_parse",
+      "passed": true
+    },
+    {
+      "name": "worker_dev_script_safe",
+      "passed": true,
+      "actual": "wrangler dev"
+    },
+    {
+      "name": "worker_preview_script_safe",
+      "passed": true,
+      "actual": "wrangler dev --remote"
+    },
+    {
+      "name": "worker_deploy_script_blocked",
+      "passed": true,
+      "actual_present": true
+    },
+    {
+      "name": "wrangler_preview_safety",
+      "passed": true,
+      "forbidden_found": []
+    },
+    {
+      "name": "wrangler_compatibility_date",
+      "passed": true,
+      "expected": "2026-06-01"
+    },
+    {
+      "name": "worker_route_/",
+      "passed": true,
+      "path": "/"
+    },
+    {
+      "name": "worker_content_type_/",
+      "passed": true,
+      "expected_content_type": "text/html"
+    },
+    {
+      "name": "worker_route_/health",
+      "passed": true,
+      "path": "/health"
+    },
+    {
+      "name": "worker_content_type_/health",
+      "passed": true,
+      "expected_content_type": "application/json"
+    },
+    {
+      "name": "worker_route_/llms.txt",
+      "passed": true,
+      "path": "/llms.txt"
+    },
+    {
+      "name": "worker_content_type_/llms.txt",
+      "passed": true,
+      "expected_content_type": "text/plain"
+    },
+    {
+      "name": "worker_route_/robots.txt",
+      "passed": true,
+      "path": "/robots.txt"
+    },
+    {
+      "name": "worker_content_type_/robots.txt",
+      "passed": true,
+      "expected_content_type": "text/plain"
+    },
+    {
+      "name": "worker_route_/sitemap.xml",
+      "passed": true,
+      "path": "/sitemap.xml"
+    },
+    {
+      "name": "worker_content_type_/sitemap.xml",
+      "passed": true,
+      "expected_content_type": "application/xml"
+    },
+    {
+      "name": "worker_route_/schema.json",
+      "passed": true,
+      "path": "/schema.json"
+    },
+    {
+      "name": "worker_content_type_/schema.json",
+      "passed": true,
+      "expected_content_type": "application/json"
+    },
+    {
+      "name": "worker_health_ok_true",
+      "passed": true
+    }
+  ],
+  "preview_plan": {
+    "mode": "dry_run_only",
+    "allowed_command": "npm run preview",
+    "working_directory": "examples/sample-restaurant/worker",
+    "deployment_confirmed_required_for_production": true,
+    "deployment_confirmed_current_value": false,
+    "runtime_publish_blocked": true
+  },
+  "smoke_test_plan": {
+    "mode": "plan_only",
+    "requires_preview_url": true,
+    "routes": [
+      {
+        "path": "/",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "text/html"
+      },
+      {
+        "path": "/health",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "application/json"
+      },
+      {
+        "path": "/llms.txt",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "text/plain"
+      },
+      {
+        "path": "/robots.txt",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "text/plain"
+      },
+      {
+        "path": "/sitemap.xml",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "application/xml"
+      },
+      {
+        "path": "/schema.json",
+        "method": "GET",
+        "expected_status": 200,
+        "expected_content_type": "application/json"
+      }
+    ]
+  },
+  "write_back": {
+    "intended_path": "receipts/sample-restaurant.validation.dry-run.json",
+    "command": "write_validation_receipt",
+    "status": "pending_validation_passed"
+  }
+}
