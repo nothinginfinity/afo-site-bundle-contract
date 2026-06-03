@@ -1,0 +1,9 @@
+# Capistrano Plumbing Co.
+
+Local plumbing company in San Juan Capistrano, CA.
+Services: Emergency repairs, drain cleaning, water heater installation, leak detection.
+Phone: (949) 555-0100
+Available 24/7.
+
+## About
+Capistrano Plumbing Co. serves residential and commercial clients in San Juan Capistrano and surrounding Orange County communities.

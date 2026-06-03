@@ -1,127 +1,144 @@
 {
-  "schema": "afo.site.bundle",
+  "schema": "afo.site.bundle.v1",
   "schema_version": "1.0.0",
   "bundle_id": "550e8400-e29b-41d4-a716-446655440000",
-  "bundle_type": "business_site",
-  "status": "generated",
+  "bundle_type": "micro_seo_site",
+  "status": "draft",
   "created_at": "2026-06-02T00:00:00Z",
   "updated_at": "2026-06-02T00:00:00Z",
-  "build_intent": "Generate a home services business website for Example Business with SEO-optimized pages, structured data, and a Cloudflare Worker ready for preview deployment.",
-
+  "build_intent": "A local plumbing company in San Juan Capistrano needs a simple SEO site that ranks for emergency plumber searches and drives phone calls.",
   "client": {
-    "name": "Example Business",
+    "name": "Capistrano Plumbing Co.",
     "industry": "Home Services",
-    "email": "hello@example-business.com",
-    "phone": "(555) 000-0000",
-    "address": "123 Main Street",
-    "city": "Anytown",
-    "state": "CA",
-    "zip": "90000",
-    "country": "US"
+    "location": "San Juan Capistrano, CA",
+    "contact_email": "owner@capistranopiping.com"
   },
-
   "site": {
-    "base_url": "https://example-business.com",
-    "title": "Example Business — Home Services",
-    "description": "Trusted home services in Anytown, CA. Serving the community with quality work since 2010.",
-    "language": "en",
-    "theme_color": "#1a56db"
+    "domain": "capistranopiping.com",
+    "title": "Capistrano Plumbing Co. — Emergency Plumber San Juan Capistrano",
+    "description": "Fast, reliable plumbing service in San Juan Capistrano. Available 24/7 for emergency repairs, drain cleaning, and water heater installation.",
+    "language": "en"
   },
-
   "content": {
     "pages": [
-      { "slug": "/", "title": "Home", "meta_description": "Example Business provides trusted home services in Anytown, CA.", "body": "Welcome to Example Business. We offer high-quality home services including plumbing, electrical, and HVAC. Call us today for a free estimate." },
-      { "slug": "/services", "title": "Our Services", "meta_description": "Explore our full range of home services.", "body": "We offer plumbing, electrical, HVAC, and general handyman services. All work is licensed and insured." },
-      { "slug": "/about", "title": "About Us", "meta_description": "Learn about Example Business and our team.", "body": "Founded in 2010, Example Business has served Anytown and surrounding areas with honest, reliable home services." },
-      { "slug": "/contact", "title": "Contact", "meta_description": "Get in touch with Example Business.", "body": "Call us at (555) 000-0000 or email hello@example-business.com. We are available Monday through Saturday, 8am to 6pm." }
-    ],
-    "articles": [
-      { "slug": "/blog/5-signs-you-need-a-plumber", "title": "5 Signs You Need a Plumber", "body": "Low water pressure, slow drains, and unusual noises are all signs it is time to call a professional.", "published_at": "2026-06-01T00:00:00Z" }
-    ],
-    "faqs": [
-      { "question": "Do you offer free estimates?", "answer": "Yes. We offer free in-person estimates for all major services." },
-      { "question": "Are you licensed and insured?", "answer": "Yes. Example Business is fully licensed and insured in the state of California." },
-      { "question": "What areas do you serve?", "answer": "We serve Anytown, CA and surrounding cities within 25 miles." }
+      {
+        "slug": "/",
+        "title": "Home",
+        "meta_description": "Emergency plumber in San Juan Capistrano. Call now for 24/7 service.",
+        "sections": [
+          {
+            "type": "hero",
+            "headline": "San Juan Capistrano's Trusted Emergency Plumber",
+            "body": "Available 24/7. Fast response. Licensed & insured.",
+            "cta_label": "Call Now",
+            "cta_url": "tel:+19495550100"
+          },
+          {
+            "type": "services",
+            "headline": "Our Services",
+            "body": "Emergency repairs, drain cleaning, water heater installation, leak detection."
+          },
+          {
+            "type": "contact",
+            "headline": "Get In Touch",
+            "body": "Call us anytime or fill out the form below."
+          }
+        ]
+      }
     ]
   },
-
   "discovery": {
-    "robots_txt": "User-agent: *\nAllow: /\nSitemap: https://example-business.com/sitemap.xml",
-    "sitemap_url": "https://example-business.com/sitemap.xml",
-    "llms_txt": "# Example Business\n\nExample Business is a licensed home services company in Anytown, CA.\n\n## Services\n- Plumbing\n- Electrical\n- HVAC\n- General Handyman\n\n## Contact\n- Phone: (555) 000-0000\n- Email: hello@example-business.com\n\n## Important Pages\n- Home: https://example-business.com/\n- Services: https://example-business.com/services\n- Contact: https://example-business.com/contact",
-    "canonical_url": "https://example-business.com/"
+    "primary_keyword": "emergency plumber San Juan Capistrano",
+    "secondary_keywords": [
+      "plumber near me",
+      "drain cleaning San Juan Capistrano",
+      "water heater repair Orange County"
+    ],
+    "og_title": "Capistrano Plumbing Co. — Emergency Plumber",
+    "og_description": "24/7 emergency plumbing in San Juan Capistrano. Fast response, licensed & insured.",
+    "robots": "index, follow",
+    "canonical_url": "https://capistranopiping.com"
   },
-
   "schema_jsonld": {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Example Business",
-    "description": "Trusted home services in Anytown, CA.",
-    "url": "https://example-business.com",
-    "telephone": "+15550000000",
-    "email": "hello@example-business.com",
+    "name": "Capistrano Plumbing Co.",
+    "url": "https://capistranopiping.com",
+    "description": "Emergency plumber in San Juan Capistrano, CA. Available 24/7.",
+    "telephone": "+1-949-555-0100",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Main Street",
-      "addressLocality": "Anytown",
+      "addressLocality": "San Juan Capistrano",
       "addressRegion": "CA",
-      "postalCode": "90000",
       "addressCountry": "US"
-    },
-    "openingHours": "Mo-Sa 08:00-18:00",
-    "areaServed": "Anytown, CA"
+    }
   },
-
   "worker": {
-    "name": "example-business-afo",
+    "name": "capistrano-plumbing-site",
     "entry_point": "src/index.ts",
     "compatibility_date": "2025-01-01",
-    "routes": [],
-    "bindings": {}
+    "routes": ["capistranopiping.com/*"],
+    "custom_domain": "capistranopiping.com"
   },
-
   "repo": {
     "owner": "nothinginfinity",
-    "repo": "afo-site-bundle-contract",
+    "name": "capistrano-plumbing-site",
     "branch": "main",
-    "bundle_path": "examples/example-business/afo.site.bundle.json",
-    "worker_path": "examples/example-business/worker"
+    "worker_path": "worker",
+    "bundle_path": "afo.site.bundle.json"
   },
-
   "validation": {
     "passed": false,
-    "validated_at": null,
-    "validated_by": null,
-    "errors": [],
-    "warnings": []
+    "checked_at": null,
+    "checks": []
   },
-
   "deployment": {
-    "deploy_mode": "preview_first",
     "confirmed": false,
-    "environment": "preview",
-    "preview_url": "",
-    "production_url": "",
-    "last_deploy": null,
-    "deploy_receipts": []
+    "target": "production",
+    "deployed_at": null,
+    "deployed_by": null,
+    "cloudflare_worker_id": null,
+    "deploy_url": null,
+    "receipt_path": null
   },
-
   "smoke_tests": {
-    "routes": ["/", "/llms.txt", "/robots.txt", "/sitemap.xml", "/schema.json", "/health"],
-    "last_smoke_test": null
+    "tests": [
+      {
+        "name": "homepage loads",
+        "url": "https://capistranopiping.com/",
+        "expected_status": 200,
+        "expected_content": "San Juan Capistrano"
+      },
+      {
+        "name": "robots.txt accessible",
+        "url": "https://capistranopiping.com/robots.txt",
+        "expected_status": 200
+      },
+      {
+        "name": "sitemap accessible",
+        "url": "https://capistranopiping.com/sitemap.xml",
+        "expected_status": 200
+      },
+      {
+        "name": "llms.txt accessible",
+        "url": "https://capistranopiping.com/llms.txt",
+        "expected_status": 200
+      }
+    ],
+    "all_passed": null,
+    "ran_at": null
   },
-
   "registry": {
     "registered": false,
-    "registered_at": null,
     "toolsmith_id": null,
-    "afo_worker_id": null
+    "control_center_id": null,
+    "tags": ["micro-seo-site", "local-business", "home-services"]
   },
-
   "handoff": {
+    "created_by": "afo-micro-seo-site-builder-mcp",
+    "last_updated_by": "afo-micro-seo-site-builder-mcp",
+    "next_action": "validate_worker",
     "next_agent": "afo-mobile-terminal-mcp",
-    "next_action": "validate_bundle",
-    "notes": "Bundle is generated and committed. Mobile Terminal should validate, then create a preview deploy.",
-    "handed_off_at": null
+    "notes": "Bundle is draft. Worker files committed to repo. Awaiting validation and operator confirmation before deploy."
   }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "capistrano-plumbing-site",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for Capistrano Plumbing Co. micro SEO site",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "wrangler dev",
+    "deploy": "echo 'Do not deploy manually. Use AFO Mobile Terminal MCP.' && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
+  }
+}

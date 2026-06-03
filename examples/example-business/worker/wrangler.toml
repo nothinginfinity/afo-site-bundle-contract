@@ -1,0 +1,15 @@
+name = "capistrano-plumbing-site"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+# Custom domain is set in Cloudflare dashboard or via API
+# GitHub is source of truth — do not deploy manually from this file
+# Deploy only via AFO Mobile Terminal MCP
+
+[build]
+command = "npm run build"
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.ts"]
+fallthrough = true
