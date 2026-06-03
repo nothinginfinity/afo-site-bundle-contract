@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is this example site?",
+    "answer": "It is a preview-safe reference site for AFO Site Bundle Manifest v1."
+  },
+  {
+    "question": "Can this be deployed to production by default?",
+    "answer": "No. Production deployment requires explicit confirmation."
+  },
+  {
+    "question": "Where is the source of truth?",
+    "answer": "GitHub is the source of truth. Cloudflare is the runtime target."
+  }
+]
