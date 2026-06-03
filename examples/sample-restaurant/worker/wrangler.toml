@@ -1,0 +1,7 @@
+name = "sample-restaurant-afo"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+workers_dev = true
+
+# Preview-safe reference configuration only.
+# Do not add production routing, account-scoped identifiers, custom domains, or environment variables here.
