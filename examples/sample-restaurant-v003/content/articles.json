@@ -1,0 +1,8 @@
+[
+  {
+    "slug": "/articles/photo-forward-restaurant-demo",
+    "title": "Photo-Forward Restaurant Demo",
+    "summary": "Restaurant v0.03 proves that preview-safe demos can include remote hero and gallery imagery.",
+    "body": "This v0.03 demo introduces a real visual layer with remote Unsplash-style images, menu tabs, event packages, and a sticky CTA while preserving AFO preview guardrails."
+  }
+]
