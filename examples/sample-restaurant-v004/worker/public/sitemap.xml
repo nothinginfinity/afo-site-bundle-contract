@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sample-restaurant-v004.example/</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/menu</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/menu.md</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/registry.json</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/items/101</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/menu/starters/seared-scallops</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/menu/starters/seared-scallops.md</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/articles/behind-the-seared-scallops</loc></url>
+  <url><loc>https://sample-restaurant-v004.example/schema.json</loc></url>
+</urlset>
