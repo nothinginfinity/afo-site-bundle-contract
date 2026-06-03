@@ -1,0 +1,10 @@
+[
+  {
+    "question": "Is this a live restaurant website?",
+    "answer": "No. This is a preview-safe sample bundle used for AFO validation."
+  },
+  {
+    "question": "Can this bundle be production deployed?",
+    "answer": "No production action is allowed unless deployment.confirmed is explicitly true in a future workflow."
+  }
+]
