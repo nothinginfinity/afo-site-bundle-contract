@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "/articles/private-events-preview",
+    "title": "Private Events Preview",
+    "summary": "A sales-ready content block for private dining, catering, and chef-led tasting menus.",
+    "body": "Restaurant v0.02 demonstrates how AFO can produce premium restaurant demo content with events-focused conversion sections while preserving preview-only deployment guardrails."
+  },
+  {
+    "slug": "/articles/chef-story",
+    "title": "Chef Story",
+    "summary": "A narrative section for chef-led seasonal dining demos.",
+    "body": "The demo uses a polished chef/story section to help business owners understand how generated restaurant sites can feel branded rather than generic."
+  }
+]
