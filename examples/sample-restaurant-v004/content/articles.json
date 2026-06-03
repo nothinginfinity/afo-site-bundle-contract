@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "behind-the-seared-scallops",
+    "item": "101",
+    "title": "Behind the Dish: Seared Scallops",
+    "summary": "How a simple coastal starter becomes a structured content asset.",
+    "body": "The seared scallops page demonstrates how one dish can create HTML, markdown, schema, sitemap entries, and a seasonal story from a registry row."
+  },
+  {
+    "slug": "meyer-lemon-season",
+    "item": "301",
+    "title": "Meyer Lemon Season",
+    "summary": "A short story that turns dessert into search and AI discovery content.",
+    "body": "The Meyer lemon posset links citrus seasonality with menu storytelling and LLM-friendly markdown output."
+  }
+]
