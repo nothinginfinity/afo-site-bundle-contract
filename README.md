@@ -59,6 +59,20 @@ Production deployment requires `deployment.confirmed = true`.
 
 `failed` may be used for any failed validation, deployment, smoke-test, registry, or receipt step.
 
+## Local validation
+
+From the repo root:
+
+```bash
+npm install
+npm run validate
+npm run check
+```
+
+`npm run validate` validates the manifest schema, required content files, preview-safe deployment fields, preview-safe Wrangler configuration, and required Worker routes.
+
+`npm run check` runs validation and then the example Worker type-check/build script. It does not deploy.
+
 ## Safety Rule
 
 ```json
