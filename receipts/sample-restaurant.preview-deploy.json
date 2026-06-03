@@ -1,7 +1,7 @@
 {
   "receipt_type": "preview_deploy",
   "schema": "afo.preview.deploy.receipt.v1",
-  "timestamp": "2026-06-03T17:10:35.033Z",
+  "timestamp": "2026-06-03T19:15:49.067Z",
   "dry_run": false,
   "preview_deploy": true,
   "production_deploy": false,
@@ -14,36 +14,41 @@
   "worker_slug": "sample-restaurant-afo",
   "script_name": "sample-restaurant-afo",
   "preview_url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/",
+  "template": {
+    "template_id": "restaurant-v1",
+    "template_version": "1.0.0",
+    "source_output_path": "templates/restaurant-v1/sample-output/worker.js",
+    "app_worker_path": "apps/sample-restaurant-afo/worker.js"
+  },
   "source": {
     "owner": "nothinginfinity",
     "repo": "afo-site-bundle-contract",
     "branch": "main",
     "app_path": "apps/sample-restaurant-afo",
     "worker_path": "apps/sample-restaurant-afo/worker.js",
-    "source_commit": "e1d2b16c96f770a4358fb74c300d429c8616369e",
-    "worker_blob_sha": "f59a1ca728b2446ba9f45f2b6f75d02c32b5d643",
-    "source_sha256": "sha256:55ff354ba123db4f108502ec5ece9b830443fedfaed020c7ffeb64f7924e3e27"
+    "worker_blob_sha": "fe15d544715867e7a1988073f27dea889b86dab2",
+    "source_sha256": "sha256:e23f9e7cfb2decbc987a153b4e8ff8beaa9f1cd3e3740d837ccad20ae1b9c148"
   },
   "validation": {
     "transport_status": "ok",
     "app_manifest_preview_safe": true,
     "deploy_spec_preview_safe": true,
-    "valid": true,
-    "notes": [
-      "Worker Transport service reported status ok before deploy.",
-      "App manifest retained workers_dev true, preview_only true, empty bindings, empty tools, empty production_routes, and empty custom_domains.",
-      "Deploy spec retained workers_dev true, preview_only true, empty production_routes, empty custom_domains, and secrets_required empty."
-    ]
-  },
-  "deploy_spec": {
-    "script_name": "sample-restaurant-afo",
-    "workers_dev": true,
-    "bindings": [],
-    "preview_only": true,
-    "production_routes": [],
-    "custom_domains": [],
-    "secrets_required": [],
-    "account_id_added": false
+    "manifest": {
+      "workers_dev": true,
+      "bindings": [],
+      "tools": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": []
+    },
+    "deploy_spec": {
+      "workers_dev": true,
+      "secrets_required": [],
+      "preview_only": true,
+      "production_routes": [],
+      "custom_domains": [],
+      "requires_confirmation": true
+    }
   },
   "deploy_tool": {
     "name": "AFO_aa_worker_transport.deploy_worker_from_github",
@@ -66,17 +71,23 @@
     "script_name": "sample-restaurant-afo",
     "binding_count": 0,
     "bindings": [],
-    "deployed_at": "2026-06-03T17:10:35.033Z",
-    "transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-afo/2026-06-03T17-10-35-033Z.transport.receipt.json",
-    "transport_receipt_commit_sha": "7ec88bada9067a107b4eb3a0ed5f917ed69c91da"
+    "deployed_at": "2026-06-03T19:15:49.067Z",
+    "transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-afo/2026-06-03T19-15-49-067Z.transport.receipt.json",
+    "transport_receipt_commit_sha": "ac3c019821a9ff0979fcf3c94318b7d3df109ad4"
   },
   "smoke_tests": {
-    "executed_by": "AFO Content Gateway health_check_content_stack plus external browser/container attempts",
-    "status": "partially_blocked_by_tooling",
+    "status": "attempted_detail_blocked_by_tooling",
+    "executed_by": [
+      "web.run open attempts",
+      "AFO Content Gateway health_check_content_stack",
+      "local container curl",
+      "AFO site preview downstream debug probe"
+    ],
     "notes": [
-      "Content Gateway accepted a six-URL health check request and returned URL entries for all six required preview routes, but the tool response exposed only truncated snippets and not the detailed status/content-type fields.",
-      "Direct browser/open attempts and local container curl attempts were blocked or could not resolve the workers.dev hostname from this runtime.",
-      "Because detailed route responses were not exposed, individual smoke checks are recorded as attempted but not independently asserted as passed in this canonical receipt."
+      "AFO Content Gateway accepted the six required preview route URLs and returned URL entries, but exposed only truncated snippets, not detailed HTTP status, content-type, or body marker results.",
+      "Direct web/open attempts for the workers.dev route URLs were blocked by the browser tool context.",
+      "Local container curl could not resolve the workers.dev hostname from this runtime.",
+      "AFO site preview downstream debug probes were read-only and targeted downstream MCP health, not the deployed sample restaurant route bodies."
     ],
     "routes": [
       {
@@ -84,27 +95,30 @@
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/",
         "expected_status": 200,
         "expected_content_type": "text/html",
-        "expected_markers": ["Sample Restaurant", "Menu highlights", "Hours", "Preview FAQ", "AI-readable routes", "Discovery files"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "expected_markers": ["Sample Restaurant", "Menu highlights", "Hours & location", "AI-readable routes", "Preview FAQ"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       },
       {
         "path": "/health",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/health",
         "expected_status": 200,
         "expected_content_type": "application/json",
-        "expected_markers": ["ok"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "expected_markers": ["ok", "restaurant-v1"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       },
       {
         "path": "/llms.txt",
         "url": "https://sample-restaurant-afo.jaredtechfit.workers.dev/llms.txt",
         "expected_status": 200,
         "expected_content_type": "text/plain",
-        "expected_markers": ["Sample Restaurant"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "expected_markers": ["Sample Restaurant", "Restaurant Template v1"],
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       },
       {
         "path": "/robots.txt",
@@ -112,8 +126,9 @@
         "expected_status": 200,
         "expected_content_type": "text/plain",
         "expected_markers": ["User-agent"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       },
       {
         "path": "/sitemap.xml",
@@ -121,8 +136,9 @@
         "expected_status": 200,
         "expected_content_type": "application/xml",
         "expected_markers": ["urlset"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       },
       {
         "path": "/schema.json",
@@ -130,18 +146,20 @@
         "expected_status": 200,
         "expected_content_type": "application/json",
         "expected_markers": ["Restaurant"],
-        "observed": "attempted_via_content_gateway_and_browser",
-        "passed": null
+        "attempted": true,
+        "passed": null,
+        "blocked_reason": "route detail not exposed by available tools"
       }
     ]
   },
-  "refreshed_ui_content_expected": {
+  "expected_live_content_from_source": {
+    "restaurant_template_v1": true,
     "homepage_contains_sample_restaurant": true,
     "homepage_contains_menu_highlights": true,
-    "homepage_contains_hours": true,
+    "homepage_contains_hours_location": true,
+    "homepage_contains_ai_readable_routes": true,
     "homepage_contains_preview_faq": true,
-    "homepage_contains_ai_readable_routes_or_discovery_files": true,
-    "verification_status": "expected_from_committed_source_and_redeploy; live response detail blocked by tool runtime"
+    "verification_basis": "committed app worker source deployed by Worker Transport; detailed live body checks blocked by available route tooling"
   },
   "safety": {
     "example_business_deployed": false,
