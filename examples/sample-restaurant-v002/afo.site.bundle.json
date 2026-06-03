@@ -1,0 +1,117 @@
+{
+  "schema": "afo.site.bundle",
+  "schema_version": "1.0.0",
+  "bundle_id": "7b9f48f2-4e8a-4e4f-b457-samplev002001",
+  "bundle_type": "micro_seo_site",
+  "status": "generated",
+  "created_at": "2026-06-03T00:00:00Z",
+  "updated_at": "2026-06-03T00:00:00Z",
+  "build_intent": "Create a premium preview-safe Restaurant v0.02 demo bundle for AFO validation and sales workflows.",
+  "client": {
+    "name": "Sample Restaurant v0.02",
+    "industry": "Restaurant",
+    "location": "San Juan Capistrano, CA",
+    "contact_email": "owner@sample-restaurant-v002.example"
+  },
+  "site": {
+    "base_url": "https://sample-restaurant-v002.example",
+    "domain": "sample-restaurant-v002.example",
+    "title": "Sample Restaurant v0.02 - Premium Restaurant Demo",
+    "description": "A premium, preview-safe restaurant demo for AFO Restaurant v0.02.",
+    "language": "en"
+  },
+  "content": {
+    "services": ["Seasonal dining", "Weekend brunch", "Private events", "Catering previews"],
+    "pages": [
+      {
+        "slug": "/",
+        "title": "Home",
+        "meta_description": "Premium preview-safe restaurant demo for AFO sales workflows.",
+        "sections": [
+          {
+            "type": "premium_hero",
+            "headline": "Premium dining demo, ready for a sales call.",
+            "body": "Restaurant v0.02 is a business-ready preview site with premium styling, AI-readable routes, and AFO guardrails.",
+            "cta_label": "Explore menu",
+            "cta_url": "#menu"
+          }
+        ]
+      }
+    ],
+    "articles": [
+      {
+        "slug": "/articles/private-events-preview",
+        "title": "Private Events Preview",
+        "summary": "A sales-ready content block for private dining, catering, and chef-led tasting menus."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Restaurant v0.02 a live restaurant?",
+        "answer": "No. It is a preview-safe AFO demo designed for validation and workers.dev preview deployment."
+      }
+    ],
+    "calls_to_action": [
+      { "label": "Reserve preview", "url": "https://sample-restaurant-v002.example/reserve" }
+    ]
+  },
+  "discovery": {
+    "llms_txt": "# Sample Restaurant v0.02\n\nA premium, preview-safe restaurant demo for AFO Restaurant v0.02.\n",
+    "robots_txt": "User-agent: *\nAllow: /\nSitemap: https://sample-restaurant-v002.example/sitemap.xml\n",
+    "sitemap_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://sample-restaurant-v002.example/</loc></url>\n</urlset>\n",
+    "canonical_url": "https://sample-restaurant-v002.example"
+  },
+  "schema_jsonld": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sample Restaurant v0.02",
+    "url": "https://sample-restaurant-v002.example",
+    "description": "A premium, preview-safe restaurant demo for AFO Restaurant v0.02.",
+    "servesCuisine": "Seasonal Coastal American"
+  },
+  "worker": {
+    "name": "sample-restaurant-v002-afo",
+    "entry_point": "src/index.ts",
+    "compatibility_date": "2026-06-01",
+    "routes": [],
+    "bindings": {}
+  },
+  "repo": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "worker_path": "examples/sample-restaurant-v002/worker",
+    "bundle_path": "examples/sample-restaurant-v002/afo.site.bundle.json",
+    "receipts_path": "receipts",
+    "handoff_path": "docs/mcp-handoff.md"
+  },
+  "validation": { "passed": false, "validated_at": null, "validated_by": null, "checks": [], "errors": [], "warnings": [] },
+  "deployment": {
+    "deploy_mode": "preview_first",
+    "confirmed": false,
+    "environment": "preview",
+    "preview_url": "",
+    "production_url": "",
+    "last_deploy": null,
+    "deploy_receipts": []
+  },
+  "smoke_tests": {
+    "routes": [
+      { "path": "/", "expect_status": 200, "expect_contains": "Sample Restaurant v0.02" },
+      { "path": "/health", "expect_status": 200, "expect_contains": "ok" },
+      { "path": "/llms.txt", "expect_status": 200, "expect_contains": "Sample Restaurant v0.02" },
+      { "path": "/robots.txt", "expect_status": 200, "expect_contains": "User-agent" },
+      { "path": "/sitemap.xml", "expect_status": 200, "expect_contains": "urlset" },
+      { "path": "/schema.json", "expect_status": 200, "expect_contains": "Restaurant" }
+    ],
+    "last_smoke_test": null
+  },
+  "registry": { "registered": false, "registered_at": null, "tags": ["micro-seo-site", "restaurant", "restaurant-v002"] },
+  "handoff": {
+    "created_by": "chatgpt-restaurant-v002-builder",
+    "last_updated_by": "chatgpt-github-mcp",
+    "next_action": "validate_then_preview_deploy",
+    "next_agent": "afo-mobile-terminal-mcp",
+    "notes": "Restaurant v0.02 premium demo bundle is generated and preview-safe. Validate before any preview deploy."
+  }
+}
