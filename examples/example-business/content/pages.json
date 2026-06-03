@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "/",
+    "title": "Home",
+    "meta_description": "Example local service website for AFO Site Bundle Manifest v1."
+  },
+  {
+    "slug": "/services",
+    "title": "Services",
+    "meta_description": "Example service page for the AFO Site Bundle contract."
+  }
+]
