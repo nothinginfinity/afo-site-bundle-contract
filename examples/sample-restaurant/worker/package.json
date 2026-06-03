@@ -1,0 +1,17 @@
+{
+  "name": "sample-restaurant-afo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "preview": "wrangler dev --remote",
+    "build": "tsc --noEmit",
+    "deploy": "echo 'Deploy is blocked for preview-safe sample restaurant bundle.' && exit 1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250601.0",
+    "typescript": "^5.8.3",
+    "wrangler": "^3.114.0"
+  }
+}
