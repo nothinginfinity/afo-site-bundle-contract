@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentfeedoptimization.com/schemas/restaurant-template-v1-content.schema.json",
+  "title": "AFO Restaurant Template v1 Content",
+  "type": "object",
+  "required": ["business", "theme", "content", "discovery", "routes"],
+  "additionalProperties": false,
+  "properties": {
+    "business": {
+      "type": "object",
+      "required": ["name", "tagline", "description", "cuisine", "location", "address", "city", "region", "hours"],
+      "additionalProperties": true,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "tagline": { "type": "string" },
+        "description": { "type": "string" },
+        "cuisine": { "type": "string" },
+        "location": { "type": "string" },
+        "phone": { "type": "string" },
+        "booking_url": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "region": { "type": "string" },
+        "hours": { "$ref": "#/$defs/labeledList" }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "required": ["style_name", "color_palette", "typography", "mood", "hero_variant"],
+      "additionalProperties": true,
+      "properties": {
+        "style_name": { "type": "string" },
+        "color_palette": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "properties": {
+            "ink": { "type": "string" },
+            "muted": { "type": "string" },
+            "paper": { "type": "string" },
+            "card": { "type": "string" },
+            "accent": { "type": "string" },
+            "accent_dark": { "type": "string" },
+            "sage": { "type": "string" },
+            "gold": { "type": "string" }
+          }
+        },
+        "typography": { "type": "string" },
+        "mood": { "type": "string" },
+        "hero_variant": { "type": "string" }
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["hero", "menu_sections", "menu_items", "featured_items", "hours", "faqs", "calls_to_action", "route_panel", "proof_points"],
+      "additionalProperties": true,
+      "properties": {
+        "hero": { "type": "object", "additionalProperties": true },
+        "menu_sections": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "menu_items": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "featured_items": { "type": "array", "items": { "type": "string" } },
+        "hours": { "$ref": "#/$defs/labeledList" },
+        "faqs": { "type": "array", "items": { "type": "object", "required": ["question", "answer"], "properties": { "question": { "type": "string" }, "answer": { "type": "string" } } } },
+        "calls_to_action": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "route_panel": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "proof_points": { "type": "array", "items": { "type": "object", "additionalProperties": true } }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["llms_txt", "robots_txt", "sitemap_xml", "schema_jsonld"],
+      "additionalProperties": true,
+      "properties": {
+        "base_url": { "type": "string" },
+        "preview_url": { "type": "string" },
+        "llms_txt": { "type": "string" },
+        "robots_txt": { "type": "string" },
+        "sitemap_xml": { "type": "string" },
+        "schema_jsonld": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "const": "/health" }
+    }
+  },
+  "$defs": {
+    "labeledList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "value"],
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    }
+  }
+}
