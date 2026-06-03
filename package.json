@@ -6,7 +6,7 @@
   "description": "Shared AFO Site Bundle Manifest v1 contract and preview-safe example bundle.",
   "scripts": {
     "validate": "node scripts/validate-bundle.mjs",
-    "check": "npm run validate"
+    "check": "npm run validate && npm --prefix examples/example-business/worker run build"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
