@@ -1,0 +1,102 @@
+{
+  "schema": "afo.site.bundle",
+  "schema_version": "1.0.0",
+  "bundle_id": "7b9f48f2-4e8a-4e4f-b457-sample000001",
+  "bundle_type": "micro_seo_site",
+  "status": "generated",
+  "created_at": "2026-06-03T00:00:00Z",
+  "updated_at": "2026-06-03T00:00:00Z",
+  "build_intent": "Create a preview-safe AI-readable restaurant website bundle for validating multi-client AFO Mobile Terminal flows.",
+  "client": {
+    "name": "Sample Restaurant",
+    "industry": "Restaurant",
+    "location": "San Juan Capistrano, CA",
+    "contact_email": "owner@sample-restaurant.example"
+  },
+  "site": {
+    "base_url": "https://sample-restaurant.example",
+    "domain": "sample-restaurant.example",
+    "title": "Sample Restaurant - Seasonal Local Dining",
+    "description": "Preview-safe restaurant website example for AFO Site Bundle Manifest v1.",
+    "language": "en"
+  },
+  "content": {
+    "services": ["Seasonal dinner", "Weekend brunch", "Private dining"],
+    "pages": [
+      {
+        "slug": "/",
+        "title": "Home",
+        "meta_description": "Preview-safe sample restaurant website.",
+        "sections": [
+          {
+            "type": "hero",
+            "headline": "Sample Restaurant Seasonal Local Dining",
+            "body": "A preview-safe restaurant bundle for validating the AFO Site Bundle contract.",
+            "cta_label": "View Menu",
+            "cta_url": "/menu"
+          }
+        ]
+      }
+    ],
+    "articles": [],
+    "faqs": [],
+    "calls_to_action": []
+  },
+  "discovery": {
+    "llms_txt": "# Sample Restaurant\n\nPreview-safe restaurant website example for AFO Site Bundle Manifest v1.\n",
+    "robots_txt": "User-agent: *\nAllow: /\nSitemap: https://sample-restaurant.example/sitemap.xml\n",
+    "sitemap_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://sample-restaurant.example/</loc></url>\n</urlset>\n",
+    "canonical_url": "https://sample-restaurant.example"
+  },
+  "schema_jsonld": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sample Restaurant",
+    "url": "https://sample-restaurant.example"
+  },
+  "worker": {
+    "name": "sample-restaurant-afo",
+    "entry_point": "src/index.ts",
+    "compatibility_date": "2026-06-01",
+    "routes": [],
+    "bindings": {}
+  },
+  "repo": {
+    "owner": "nothinginfinity",
+    "repo": "afo-site-bundle-contract",
+    "branch": "main",
+    "worker_path": "examples/sample-restaurant/worker",
+    "bundle_path": "examples/sample-restaurant/afo.site.bundle.json",
+    "receipts_path": "receipts",
+    "handoff_path": "docs/mcp-handoff.md"
+  },
+  "validation": { "passed": false, "validated_at": null, "validated_by": null, "checks": [], "errors": [], "warnings": [] },
+  "deployment": {
+    "deploy_mode": "preview_first",
+    "confirmed": false,
+    "environment": "preview",
+    "preview_url": "",
+    "production_url": "",
+    "last_deploy": null,
+    "deploy_receipts": []
+  },
+  "smoke_tests": {
+    "routes": [
+      { "path": "/", "expect_status": 200, "expect_contains": "Sample Restaurant" },
+      { "path": "/health", "expect_status": 200, "expect_contains": "ok" },
+      { "path": "/llms.txt", "expect_status": 200, "expect_contains": "Sample Restaurant" },
+      { "path": "/robots.txt", "expect_status": 200, "expect_contains": "User-agent" },
+      { "path": "/sitemap.xml", "expect_status": 200, "expect_contains": "urlset" },
+      { "path": "/schema.json", "expect_status": 200, "expect_contains": "Restaurant" }
+    ],
+    "last_smoke_test": null
+  },
+  "registry": { "registered": false, "registered_at": null, "tags": ["micro-seo-site", "restaurant"] },
+  "handoff": {
+    "created_by": "afo-micro-seo-site-builder-mcp",
+    "last_updated_by": "chatgpt-github-mcp",
+    "next_action": "validate_worker",
+    "next_agent": "afo-mobile-terminal-mcp",
+    "notes": "Sample restaurant bundle is generated and preview-safe. Validate before any preview work."
+  }
+}
