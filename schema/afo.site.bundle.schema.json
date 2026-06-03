@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/nothinginfinity/afo-site-bundle-contract/schema/afo.site.bundle.schema.json",
-  "title": "AFO Site Bundle Manifest",
-  "description": "Shared contract between AFO Micro SEO Site Builder MCP and AFO Mobile Terminal / Deploy MCP. GitHub is source of truth; Cloudflare is deployment/runtime only.",
+  "title": "AFO Site Bundle Manifest v1",
+  "description": "Shared contract between AFO Micro SEO Site Builder MCP and AFO Mobile Terminal / Deploy MCP. GitHub is source of truth; Cloudflare is runtime only.",
   "type": "object",
   "required": [
     "schema",
@@ -27,232 +27,158 @@
     "handoff"
   ],
   "properties": {
-    "schema": {
-      "type": "string",
-      "description": "Schema identifier URI",
-      "example": "afo.site.bundle.v1"
-    },
-    "schema_version": {
-      "type": "string",
-      "description": "Semver schema version",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "example": "1.0.0"
-    },
-    "bundle_id": {
-      "type": "string",
-      "description": "Unique bundle UUID",
-      "format": "uuid"
-    },
-    "bundle_type": {
-      "type": "string",
-      "description": "Type of bundle",
-      "enum": ["micro_seo_site", "landing_page", "service_site", "custom"]
-    },
+    "schema": { "type": "string", "const": "afo.site.bundle" },
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "bundle_id": { "type": "string", "format": "uuid" },
+    "bundle_type": { "type": "string", "enum": ["micro_seo_site", "landing_page", "service_site", "custom"] },
     "status": {
       "type": "string",
-      "description": "Current lifecycle status of the bundle",
-      "enum": ["draft", "ready", "validating", "validated", "deploying", "deployed", "failed"]
+      "enum": [
+        "draft",
+        "generated",
+        "validated",
+        "preview_ready",
+        "preview_deployed",
+        "smoke_tested",
+        "production_ready",
+        "production_deployed",
+        "registered",
+        "receipted",
+        "failed"
+      ]
     },
-    "created_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 creation timestamp"
-    },
-    "updated_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 last-updated timestamp"
-    },
-    "build_intent": {
-      "type": "string",
-      "description": "Human-readable description of what this site does and why it is being built"
-    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "build_intent": { "type": "string" },
     "client": {
       "type": "object",
-      "description": "Business or client information",
-      "required": ["name"],
+      "required": ["name", "industry"],
       "properties": {
         "name": { "type": "string" },
         "industry": { "type": "string" },
         "location": { "type": "string" },
-        "contact_email": { "type": "string", "format": "email" }
-      }
+        "contact_email": { "type": "string" },
+        "phone": { "type": "string" }
+      },
+      "additionalProperties": true
     },
     "site": {
       "type": "object",
-      "description": "Core site identity",
-      "required": ["domain", "title", "description", "language"],
+      "required": ["base_url", "domain", "title", "description", "language"],
       "properties": {
+        "base_url": { "type": "string" },
         "domain": { "type": "string" },
         "title": { "type": "string" },
         "description": { "type": "string" },
-        "language": { "type": "string", "default": "en" },
-        "favicon_url": { "type": "string" },
-        "logo_url": { "type": "string" }
-      }
+        "language": { "type": "string", "default": "en" }
+      },
+      "additionalProperties": true
     },
     "content": {
       "type": "object",
-      "description": "Site pages and copy",
       "properties": {
-        "pages": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["slug", "title"],
-            "properties": {
-              "slug": { "type": "string" },
-              "title": { "type": "string" },
-              "meta_description": { "type": "string" },
-              "sections": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "type": { "type": "string" },
-                    "headline": { "type": "string" },
-                    "body": { "type": "string" },
-                    "cta_label": { "type": "string" },
-                    "cta_url": { "type": "string" }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+        "services": { "type": "array" },
+        "pages": { "type": "array" },
+        "articles": { "type": "array" },
+        "faqs": { "type": "array" },
+        "calls_to_action": { "type": "array" }
+      },
+      "additionalProperties": true
     },
     "discovery": {
       "type": "object",
-      "description": "SEO and discoverability config",
       "properties": {
-        "primary_keyword": { "type": "string" },
-        "secondary_keywords": { "type": "array", "items": { "type": "string" } },
-        "og_title": { "type": "string" },
-        "og_description": { "type": "string" },
-        "og_image_url": { "type": "string" },
-        "robots": { "type": "string", "default": "index, follow" },
+        "llms_txt": { "type": "string" },
+        "robots_txt": { "type": "string" },
+        "sitemap_xml": { "type": "string" },
+        "sitemap_json": { "type": "object" },
+        "agent_actions": { "type": "object" },
         "canonical_url": { "type": "string" }
-      }
+      },
+      "additionalProperties": true
     },
-    "schema_jsonld": {
-      "type": "object",
-      "description": "JSON-LD structured data block (Schema.org)",
-      "properties": {
-        "@context": { "type": "string" },
-        "@type": { "type": "string" },
-        "name": { "type": "string" },
-        "url": { "type": "string" },
-        "description": { "type": "string" }
-      }
-    },
+    "schema_jsonld": { "type": "object" },
     "worker": {
       "type": "object",
-      "description": "Cloudflare Worker configuration",
-      "required": ["name", "entry_point"],
+      "required": ["name", "entry_point", "compatibility_date"],
       "properties": {
-        "name": { "type": "string", "description": "Cloudflare Worker name" },
-        "entry_point": { "type": "string", "description": "Path to worker entry file relative to worker root", "default": "src/index.ts" },
+        "name": { "type": "string" },
+        "entry_point": { "type": "string" },
         "compatibility_date": { "type": "string" },
         "routes": { "type": "array", "items": { "type": "string" } },
-        "custom_domain": { "type": "string" },
-        "kv_bindings": { "type": "array", "items": { "type": "object" } },
-        "d1_bindings": { "type": "array", "items": { "type": "object" } },
-        "env_vars": { "type": "object" }
-      }
+        "bindings": { "type": "object" }
+      },
+      "additionalProperties": true
     },
     "repo": {
       "type": "object",
-      "description": "GitHub repository details — source of truth",
-      "required": ["owner", "name", "branch"],
+      "required": ["owner", "repo", "branch", "worker_path", "bundle_path"],
       "properties": {
         "owner": { "type": "string" },
-        "name": { "type": "string" },
-        "branch": { "type": "string", "default": "main" },
-        "worker_path": { "type": "string", "description": "Path to worker directory within repo", "default": "worker" },
-        "bundle_path": { "type": "string", "description": "Path to the afo.site.bundle.json file within repo", "default": "afo.site.bundle.json" }
-      }
+        "repo": { "type": "string" },
+        "branch": { "type": "string" },
+        "worker_path": { "type": "string" },
+        "bundle_path": { "type": "string" },
+        "receipts_path": { "type": "string" },
+        "handoff_path": { "type": "string" }
+      },
+      "additionalProperties": true
     },
     "validation": {
       "type": "object",
-      "description": "Pre-deploy validation results populated by AFO Mobile Terminal",
       "properties": {
         "passed": { "type": "boolean" },
-        "checked_at": { "type": "string", "format": "date-time" },
-        "checks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": { "type": "string" },
-              "passed": { "type": "boolean" },
-              "message": { "type": "string" }
-            }
-          }
-        }
-      }
+        "validated_at": { "type": ["string", "null"] },
+        "validated_by": { "type": ["string", "null"] },
+        "checks": { "type": "array" },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
     },
     "deployment": {
       "type": "object",
-      "description": "Deployment control — confirmed must be true before any production deploy",
-      "required": ["confirmed"],
+      "required": ["deploy_mode", "confirmed", "environment"],
       "properties": {
-        "confirmed": {
-          "type": "boolean",
-          "default": false,
-          "description": "MUST be explicitly set to true by the operator via AFO Mobile Terminal. Deploy MCP refuses to deploy if false."
-        },
-        "target": { "type": "string", "enum": ["production", "staging", "preview"], "default": "production" },
-        "deployed_at": { "type": "string", "format": "date-time" },
-        "deployed_by": { "type": "string" },
-        "cloudflare_worker_id": { "type": "string" },
-        "deploy_url": { "type": "string" },
-        "receipt_path": { "type": "string", "description": "Path to receipt file written back to GitHub" }
-      }
+        "deploy_mode": { "type": "string", "enum": ["preview_first"] },
+        "confirmed": { "type": "boolean", "const": false, "description": "Default must be false. Production deployment requires an explicit operator-confirmed change." },
+        "environment": { "type": "string", "enum": ["preview", "production"] },
+        "preview_url": { "type": "string" },
+        "production_url": { "type": "string" },
+        "last_deploy": { "type": ["object", "string", "null"] },
+        "deploy_receipts": { "type": "array" }
+      },
+      "additionalProperties": true
     },
     "smoke_tests": {
       "type": "object",
-      "description": "Post-deploy smoke test definitions and results",
       "properties": {
-        "tests": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["name", "url", "expected_status"],
-            "properties": {
-              "name": { "type": "string" },
-              "url": { "type": "string" },
-              "expected_status": { "type": "integer", "default": 200 },
-              "expected_content": { "type": "string" },
-              "passed": { "type": "boolean" },
-              "checked_at": { "type": "string", "format": "date-time" }
-            }
-          }
-        },
-        "all_passed": { "type": "boolean" },
-        "ran_at": { "type": "string", "format": "date-time" }
-      }
+        "routes": { "type": "array" },
+        "tests": { "type": "array" },
+        "last_smoke_test": { "type": ["object", "null"] }
+      },
+      "additionalProperties": true
     },
     "registry": {
       "type": "object",
-      "description": "Toolsmith / AFO Control Center registration metadata",
       "properties": {
-        "registered": { "type": "boolean", "default": false },
-        "toolsmith_id": { "type": "string" },
-        "control_center_id": { "type": "string" },
-        "tags": { "type": "array", "items": { "type": "string" } }
-      }
+        "registered": { "type": "boolean" },
+        "registered_at": { "type": ["string", "null"] },
+        "tags": { "type": "array" }
+      },
+      "additionalProperties": true
     },
     "handoff": {
       "type": "object",
-      "description": "MCP handoff metadata — tracks which agent created and last touched the bundle",
       "properties": {
-        "created_by": { "type": "string", "description": "MCP or agent that created the bundle" },
+        "created_by": { "type": "string" },
         "last_updated_by": { "type": "string" },
-        "next_action": { "type": "string", "description": "What should happen next" },
-        "next_agent": { "type": "string", "description": "Which MCP/agent should handle the next action" },
+        "next_action": { "type": "string" },
+        "next_agent": { "type": "string" },
         "notes": { "type": "string" }
-      }
+      },
+      "additionalProperties": true
     }
-  }
+  },
+  "additionalProperties": false
 }
