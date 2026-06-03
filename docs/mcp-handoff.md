@@ -1,50 +1,46 @@
 # MCP Handoff Protocol
 
-This document describes how MCPs pass the AFO Site Bundle between agents.
+This document describes how AFO MCPs pass an AFO Site Bundle between generation, validation, deployment, smoke testing, registration, and receipts.
 
----
+## Source of Truth
 
-## The `handoff` Section
+GitHub is always the source of truth. MCPs should read the bundle from GitHub before acting and should write updated state back to GitHub after acting.
 
-Every bundle includes a `handoff` object that tracks which agent last touched it and what should happen next:
+## Ownership
 
-```json
-"handoff": {
-  "created_by": "afo-micro-seo-site-builder-mcp",
-  "last_updated_by": "afo-micro-seo-site-builder-mcp",
-  "next_action": "validate_worker",
-  "next_agent": "afo-mobile-terminal-mcp",
-  "notes": "Bundle is draft. Worker files committed. Awaiting validation."
-}
-```
+AFO Micro SEO Site Builder owns:
 
----
+- `client`
+- `site`
+- `content`
+- `discovery`
+- `schema_jsonld`
+- `smoke_tests.routes`
 
-## Handoff Values by Stage
+AFO Mobile Terminal owns:
 
-| Stage | `created_by` | `next_action` | `next_agent` |
-|---|---|---|---|
-| Bundle created | `afo-micro-seo-site-builder-mcp` | `validate_worker` | `afo-mobile-terminal-mcp` |
-| Validation complete | `afo-mobile-terminal-mcp` | `confirm_deploy` | `operator` |
-| Operator confirmed | `operator` | `deploy_worker` | `afo-mobile-deploy-mcp` |
-| Deploy complete | `afo-mobile-deploy-mcp` | `run_smoke_tests` | `afo-mobile-terminal-mcp` |
-| Smoke tests passed | `afo-mobile-terminal-mcp` | `write_receipt` | `afo-mobile-terminal-mcp` |
-| Receipt written | `afo-mobile-terminal-mcp` | `register` | `afo-control-center-mcp` |
-| Registered | `afo-control-center-mcp` | `none` | `none` |
+- `worker`
+- `repo`
+- `validation`
+- `deployment`
+- `smoke_tests.last_smoke_test`
+- `registry`
+- `handoff`
 
----
+## Handoff Flow
 
-## How MCPs Should Read the Bundle
+| Status | Next action | Next agent |
+|---|---|---|
+| `generated` | `validate_worker` | `afo-mobile-terminal-mcp` |
+| `validated` | `prepare_preview` | `afo-mobile-terminal-mcp` |
+| `preview_ready` | `preview_worker_deploy` | `afo-mobile-terminal-mcp` |
+| `preview_deployed` | `run_smoke_tests` | `afo-mobile-terminal-mcp` |
+| `smoke_tested` | `operator_review` | `operator` |
+| `production_ready` | `deploy_worker_confirmed` | `afo-mobile-deploy-mcp` |
+| `production_deployed` | `register_worker` | `afo-mobile-terminal-mcp` |
+| `registered` | `write_receipt` | `afo-mobile-terminal-mcp` |
+| `receipted` | `none` | `none` |
 
-1. Read `afo.site.bundle.json` from GitHub (always — never cache)
-2. Check `status` to understand current lifecycle stage
-3. Check `handoff.next_agent` to confirm the bundle is addressed to you
-4. Check `handoff.next_action` for what to do
-5. After completing work, update `handoff.last_updated_by`, `handoff.next_action`, `handoff.next_agent`
-6. Commit updated bundle back to GitHub
+## Confirmation Rule
 
----
-
-## Source of Truth Rule
-
-GitHub is always the source of truth. No MCP should hold bundle state in memory between sessions. Always read from and write to GitHub.
+Production deployment must not happen unless `deployment.confirmed` is explicitly true. Preview, validation, and smoke-test operations should remain safe and non-production by default.
