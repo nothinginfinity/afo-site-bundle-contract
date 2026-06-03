@@ -1,0 +1,15 @@
+{
+  "name": "afo-site-bundle-contract",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared AFO Site Bundle Manifest v1 contract and preview-safe example bundle.",
+  "scripts": {
+    "validate": "node scripts/validate-bundle.mjs",
+    "check": "npm run validate"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}
