@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sample Restaurant v0.05",
+  "url": "https://sample-restaurant-v005.example",
+  "description": "Restaurant v0.05 adds sticky conversion CTA, deeper menu schema, testimonials, accessibility, menu.json discovery, and A/B preview modes.",
+  "servesCuisine": "California Coastal",
+  "telephone": "(949) 555-0505",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Sample Restaurant v0.05 Menu",
+    "hasMenuSection": [
+      { "@type": "MenuSection", "name": "Starters" },
+      { "@type": "MenuSection", "name": "Mains" },
+      { "@type": "MenuSection", "name": "Desserts" }
+    ]
+  },
+  "review": [
+    { "@type": "Review", "author": { "@type": "Person", "name": "Maya Chen" }, "reviewBody": "The menu pages feel like a real restaurant, not a placeholder demo." }
+  ]
+}
