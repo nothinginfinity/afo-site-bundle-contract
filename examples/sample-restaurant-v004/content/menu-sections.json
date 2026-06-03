@@ -1,0 +1,5 @@
+[
+  { "id": "starters", "name": "Starters", "description": "Bright coastal openers built for sharing." },
+  { "id": "mains", "name": "Mains", "description": "Seasonal center-plate dishes with California produce." },
+  { "id": "desserts", "name": "Desserts", "description": "Sunny sweets with citrus, chocolate, and texture." }
+]
