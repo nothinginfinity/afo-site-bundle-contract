@@ -13,11 +13,10 @@
   "deployment_confirmed_changed": false,
   "deployment_confirmed": false,
   "deployment": {
-    "deployment_id": "affb36ee7efb49a6bc18f7948ba41f1a",
+    "deployment_id": "11617a26bd994d4cad6988fceab34a1e",
     "tag": "fb9f42f9e03942ed9dd6729ab63ccb92",
-    "etag": "570429e7dd3db18063e1daed181235be64e024dcd2a6943213a91a1fc86e7a9a",
-    "created_on": "2026-06-04T19:45:19.750883Z",
-    "modified_on": "2026-06-04T19:45:19.750883Z",
+    "etag": "59f8fc1cff6ef36ccaaeee0abe747c43b6e573b99a9413bed95e821a9e3d3761",
+    "modified_on": "2026-06-04T19:51:47.950376Z",
     "last_deployed_from": "api",
     "has_modules": true,
     "handlers": [
@@ -43,18 +42,14 @@
       "name": "DB",
       "database_name": "contractor_v007_afo_db",
       "database_id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
-    }
-  ],
-  "requested_bindings_blocked": [
+    },
     {
       "type": "r2_bucket",
       "name": "MEDIA",
-      "bucket_name": "contractor-v007-afo-media",
-      "attempted": true,
-      "attached": false,
-      "cloudflare_error_code": 10085,
-      "cloudflare_error": "R2 bucket 'contractor-v007-afo-media' not found. Verify the bucket exists in your account and that the bucket_name in your configuration is correct."
-    },
+      "bucket_name": "afo-site-content"
+    }
+  ],
+  "requested_bindings_blocked": [
     {
       "type": "vectorize",
       "name": "VECTOR_INDEX",
@@ -68,14 +63,14 @@
   "feature_summary": [
     "binding layer cockpit",
     "D1 DB binding live",
+    "R2 MEDIA binding live using afo-site-content",
     "customers table foundation",
     "upload_metadata table foundation",
     "knowledge_seeds table foundation",
     "prompt_requests table foundation",
     "receipts table foundation",
-    "upload cockpit queues metadata to D1",
+    "upload cockpit stores metadata to D1 and binary media to R2",
     "knowledge seeds queue to D1 pending Vectorize",
-    "R2 MEDIA binding attempted but blocked by missing bucket",
     "Vectorize VECTOR_INDEX binding attempted but blocked by missing index",
     "backend service binding preserved",
     "preview-safe admin only",
@@ -110,31 +105,14 @@
     "/robots.txt",
     "/sitemap.xml"
   ],
-  "smoke_tests": [
-    {
-      "route": "/",
-      "url": "https://contractor-v007-afo.jaredtechfit.workers.dev/",
-      "attempted": true,
-      "status": 404,
-      "content_type": "text/plain; charset=UTF-8",
-      "body_marker": "error code: 1042",
-      "result": "blocked_or_unavailable_workers_dev_route"
-    },
-    {
-      "route": "metadata",
-      "attempted": true,
-      "status": 200,
-      "result": "worker_metadata_read_successfully_and_BACKEND_DB_bindings_confirmed"
-    }
-  ],
   "source_verification": {
     "deploy_tool_returned_success": true,
     "worker_metadata_read": true,
     "metadata_binding_confirmed": [
       "BACKEND -> afo-demo-backend-v001",
-      "DB -> contractor_v007_afo_db"
-    ],
-    "routes_metadata_read_blocked": "Cloudflare API route metadata returned authentication error"
+      "DB -> contractor_v007_afo_db",
+      "MEDIA -> afo-site-content"
+    ]
   },
   "repo_files": {
     "created_or_updated": [
@@ -159,9 +137,9 @@
     "no_autonomous_production_writes": true
   },
   "next_steps": [
-    "Create R2 bucket contractor-v007-afo-media, then redeploy with MEDIA binding.",
     "Create Vectorize index contractor-v007-afo-vector, then redeploy with VECTOR_INDEX binding.",
+    "Build or update MCP tools for Vectorize index lifecycle and R2 bucket/file operations.",
     "Run /admin/init-db once workers.dev routing is reachable or through an internal execution path."
   ],
-  "commit_message": "Add contractor v007 D1 binding cockpit"
+  "commit_message": "Update contractor v007 MEDIA binding to afo-site-content"
 }
