@@ -1,0 +1,39 @@
+{
+  "receipt_type": "sample-restaurant-v010-afo.deploy",
+  "created_at": "2026-06-04T14:38:46Z",
+  "worker": "sample-restaurant-v010-afo",
+  "version": "0.10",
+  "preview_url": "https://sample-restaurant-v010-afo.jaredtechfit.workers.dev/",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "deployment_id": "440763e93fea4cc78ff425db91f4906e",
+    "tag": "96d2415d243742c48a03de5dcd47aaa4",
+    "modified_on": "2026-06-04T14:38:46.419267Z"
+  },
+  "bindings": [
+    { "type": "service", "name": "BACKEND", "service": "afo-demo-backend-v001" }
+  ],
+  "routes": [
+    "/", "/health", "/site.json", "/menu.json", "/articles.json",
+    "/media.json", "/knowledge.json", "/chat", "/leads",
+    "/media/IMG_1530.jpeg", "/schema.json", "/llms.txt",
+    "/robots.txt", "/sitemap.xml"
+  ],
+  "backend_driven": {
+    "loads_site_json": true,
+    "renders_sections_from_site_json": true,
+    "images_from_media_refs": true,
+    "chat_citations_and_suggested_actions": true,
+    "fallback_banner": true,
+    "service_binding": true
+  },
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  }
+}
