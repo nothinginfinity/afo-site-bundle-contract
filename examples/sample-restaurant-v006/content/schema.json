@@ -1,0 +1,149 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sample Restaurant v0.06",
+  "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/",
+  "description": "Restaurant v0.06 upgrades the menu into a polished HTML-first, conversion-ready, MCP-action-ready restaurant preview.",
+  "servesCuisine": "California Coastal",
+  "telephone": "(949) 555-0606",
+  "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&fm=webp&w=1800&q=75",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Sample Restaurant v0.06 Menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "identifier": "starters",
+        "name": "Starters",
+        "description": "Bright openers and coastal small plates."
+      },
+      {
+        "@type": "MenuSection",
+        "identifier": "mains",
+        "name": "Mains",
+        "description": "Seasonal California center plates."
+      },
+      {
+        "@type": "MenuSection",
+        "identifier": "desserts",
+        "name": "Desserts",
+        "description": "Sunny desserts and end-of-meal signatures."
+      }
+    ]
+  },
+  "menuItemSummary": [
+    {
+      "@type": "MenuItem",
+      "identifier": "101",
+      "name": "Seared Scallops",
+      "description": "Golden scallops, charred lemon butter, sweet pea puree, crispy shallot.",
+      "offers": {
+        "@type": "Offer",
+        "price": "22.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/starters/seared-scallops"
+      }
+    },
+    {
+      "@type": "MenuItem",
+      "identifier": "102",
+      "name": "Avocado Citrus Crudo",
+      "description": "Avocado, cara cara orange, basil oil, smoked salt, shaved fennel.",
+      "offers": {
+        "@type": "Offer",
+        "price": "17.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/starters/avocado-citrus-crudo"
+      }
+    },
+    {
+      "@type": "MenuItem",
+      "identifier": "201",
+      "name": "Pacific Halibut",
+      "description": "Charred corn, salsa verde, fingerling potatoes, herbs, olive oil.",
+      "offers": {
+        "@type": "Offer",
+        "price": "36.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/mains/pacific-halibut"
+      }
+    },
+    {
+      "@type": "MenuItem",
+      "identifier": "202",
+      "name": "Wild Mushroom Campanelle",
+      "description": "Brown butter, sage, parmesan, garden herbs, toasted breadcrumbs.",
+      "offers": {
+        "@type": "Offer",
+        "price": "27.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/mains/wild-mushroom-campanelle"
+      }
+    },
+    {
+      "@type": "MenuItem",
+      "identifier": "301",
+      "name": "Meyer Lemon Posset",
+      "description": "Silky lemon cream, berries, shortbread crumble, sea salt.",
+      "offers": {
+        "@type": "Offer",
+        "price": "12.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/desserts/meyer-lemon-posset"
+      }
+    },
+    {
+      "@type": "MenuItem",
+      "identifier": "302",
+      "name": "Chocolate Sea Salt Tart",
+      "description": "Dark chocolate, caramel, cocoa nib, vanilla cream, flaky salt.",
+      "offers": {
+        "@type": "Offer",
+        "price": "14.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/menu/desserts/chocolate-sea-salt-tart"
+      }
+    }
+  ],
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Maya Chen"},
+      "reviewBody": "The menu pages feel like a real restaurant, not a placeholder demo.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Drew Alvarez"},
+      "reviewBody": "The Menu/Reserve/Event CTA makes the next step obvious on mobile.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Noor Patel"},
+      "reviewBody": "Every dish has a story, clean schema, and an AI-friendly version.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Sam Rivera"},
+      "reviewBody": "The live-menu preview feels ready for a restaurant owner sales call.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    }
+  ],
+  "subjectOf": [
+    {"@type": "Article", "headline": "Behind the Dish: Seared Scallops", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/behind-the-seared-scallops", "about": "behind the dish"},
+    {"@type": "Article", "headline": "Spring Pairings for Coastal Starters", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/spring-pairings-for-coastal-starters", "about": "pairings"},
+    {"@type": "Article", "headline": "Chef Notes: Halibut with Salsa Verde", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/chef-notes-halibut-salsa-verde", "about": "chef notes"},
+    {"@type": "Article", "headline": "Seasonal Ingredient Story: Wild Mushrooms", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/seasonal-ingredient-story-wild-mushrooms", "about": "seasonal ingredient stories"},
+    {"@type": "Article", "headline": "Private Event Menu Planning with Seasonal Anchors", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/private-event-menu-planning", "about": "private events"},
+    {"@type": "Article", "headline": "Local Sourcing: Citrus, Avocado, and Fennel", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/local-sourcing-citrus-avocado", "about": "local sourcing"},
+    {"@type": "Article", "headline": "Meyer Lemon Season", "url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/articles/meyer-lemon-season", "about": "seasonal ingredient stories"}
+  ]
+}
