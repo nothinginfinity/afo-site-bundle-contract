@@ -1,0 +1,64 @@
+{
+  "receipt_type": "sample-restaurant-v009-afo.deploy",
+  "created_at": "2026-06-04T14:02:39Z",
+  "frontend_worker": "sample-restaurant-v009-afo",
+  "frontend_preview_url": "https://sample-restaurant-v009-afo.jaredtechfit.workers.dev/",
+  "backend_worker": "afo-demo-backend-v001",
+  "backend_url": "https://afo-demo-backend-v001.jaredtechfit.workers.dev",
+  "backend_stabilization_deploy": {
+    "ok": true,
+    "deployed": true,
+    "status": 200,
+    "deployment_id": "914a5a93aa5b417c8a9810b746822e5e",
+    "modified_on": "2026-06-04T14:01:52.153793Z",
+    "bindings": [
+      {"type": "d1", "name": "DB", "id": "ccbd076e-aaa7-42bb-8808-a20bd83569e2"},
+      {"type": "r2_bucket", "name": "MEDIA", "bucket_name": "afo-site-content"}
+    ]
+  },
+  "frontend_deploy": {
+    "ok": true,
+    "deployed": true,
+    "status": 200,
+    "deployment_id": "404cf2850d5a4136a6a0858628e67de2",
+    "tag": "a99b7ef5d4dd48fbb4ad4b9d47d1c1bf",
+    "modified_on": "2026-06-04T14:02:39.163557Z",
+    "last_deployed_from": "api"
+  },
+  "objectives_completed": {
+    "backend_routes_stabilized": ["/menu.json", "/articles.json", "/chat", "/leads"],
+    "interactive_chat_demo": true,
+    "fallback_banner_with_retry": true,
+    "schema_json_backend_status": true,
+    "llms_txt_backend_contract": true,
+    "mutating_route_scope": {
+      "backend_chat_rate_limited": true,
+      "backend_leads_rate_limited": true,
+      "backend_admin_rate_limited": true,
+      "leads_preview_token_supported": true
+    }
+  },
+  "frontend_routes": [
+    "/",
+    "/health",
+    "/menu.json",
+    "/articles.json",
+    "/media.json",
+    "/chat",
+    "/leads",
+    "/media/IMG_1530.jpeg",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  },
+  "smoke_test_note": "Deployment and Cloudflare metadata confirmed through tooling. External workers.dev route fetches from this chat environment may be blocked by DNS/fetch limitations, so browser smoke testing is still recommended."
+}
