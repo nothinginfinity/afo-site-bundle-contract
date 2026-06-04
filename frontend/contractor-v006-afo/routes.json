@@ -1,0 +1,70 @@
+{
+  "worker_slug": "contractor-v006-afo",
+  "version": "0.06",
+  "preview_url": "https://contractor-v006-afo.jaredtechfit.workers.dev/",
+  "connected_versions": {
+    "v004": {
+      "worker_slug": "contractor-v004-afo",
+      "url": "https://contractor-v004-afo.jaredtechfit.workers.dev/",
+      "role": "public contractor demo reference"
+    },
+    "v005": {
+      "worker_slug": "contractor-v005-afo",
+      "url": "https://contractor-v005-afo.jaredtechfit.workers.dev/",
+      "role": "admin prompt cockpit reference"
+    },
+    "v006": {
+      "worker_slug": "contractor-v006-afo",
+      "url": "https://contractor-v006-afo.jaredtechfit.workers.dev/",
+      "role": "connected site manager cockpit"
+    }
+  },
+  "routes": [
+    "/",
+    "/admin",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt",
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/recordings",
+    "/admin/media-plan.json",
+    "/projects/featured",
+    "/featured-project.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "upload_cockpit_routes": [
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/recordings",
+    "/admin/media-plan.json"
+  ],
+  "preview_only": true,
+  "production_deploy": false,
+  "custom_domain": false,
+  "bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001"
+    }
+  ],
+  "future_bindings_not_added_yet": [
+    "D1 DB",
+    "R2 MEDIA bucket",
+    "Vectorize VECTOR_INDEX"
+  ]
+}
