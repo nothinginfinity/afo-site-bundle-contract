@@ -4,47 +4,30 @@ Worker: `contractor-v007-afo`
 
 Expected preview URL: https://contractor-v007-afo.jaredtechfit.workers.dev/
 
-## Outcome
+## Current outcome
 
-v007 implements the next binding-layer milestone as far as the available Cloudflare resources currently allow.
+v007 now has the live binding layer Jared requested for D1 + R2.
 
 ### Live in v007
 
 - `BACKEND` service binding preserved: `afo-demo-backend-v001`
-- `DB` D1 binding created and attached: `contractor_v007_afo_db`
+- `DB` D1 binding attached: `contractor_v007_afo_db`
 - D1 database UUID: `f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2`
-- Admin cockpit now supports D1-backed tables for:
-  - customers
-  - upload metadata
-  - knowledge seeds
-  - prompt requests
-  - receipts
+- `MEDIA` R2 binding attached to existing bucket: `afo-site-content`
 
-### Planned / blocked until resources exist
+### Planned / still needed
 
-- `MEDIA` R2 binding requested, but Cloudflare rejected deployment because bucket `contractor-v007-afo-media` does not exist yet.
-- `VECTOR_INDEX` Vectorize binding requested, but Cloudflare rejected deployment because index `contractor-v007-afo-vector` does not exist yet.
+- `VECTOR_INDEX` Vectorize binding is still planned.
+- Earlier deployment with `VECTOR_INDEX -> contractor-v007-afo-vector` was rejected because the Vectorize index does not exist yet.
 
-v007 therefore queues media metadata and vector seed records into D1 while clearly reporting R2 and Vectorize as planned/not bound.
+## What the cockpit can do now
 
-## Binding status
-
-Live deployed bindings:
-
-```json
-[
-  {
-    "name": "BACKEND",
-    "type": "service",
-    "service": "afo-demo-backend-v001"
-  },
-  {
-    "name": "DB",
-    "type": "d1",
-    "id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
-  }
-]
-```
+- Store customer records in D1.
+- Store upload metadata in D1.
+- Store files/images/videos/audio binaries in R2 bucket `afo-site-content` through binding `MEDIA`.
+- Store knowledge seed records in D1 as pending vector indexing.
+- Store prompt requests in D1.
+- Provide binding status from `/admin/bindings.json` and `/health`.
 
 ## Admin routes
 
@@ -79,9 +62,32 @@ The `/admin/init-db` route creates these tables if missing:
 Current v007 behavior:
 
 - Upload metadata is stored in D1.
-- Files/images/videos/audio binaries are not stored in R2 yet because `MEDIA` is not bound.
+- Binary media is stored in R2 under keys like:
+  - `contractor-v007/uploads/{site_id}/{upload_id}/{filename}`
 - Knowledge seeds are stored in D1 with vector status `pending_vector_index_not_bound`.
-- Vector search returns a clear 501-style planned/not-bound response until the Vectorize index exists.
+- Vector search returns a clear planned/not-bound response until the Vectorize index exists and is attached.
+
+## Live binding metadata
+
+```json
+[
+  {
+    "name": "BACKEND",
+    "type": "service",
+    "service": "afo-demo-backend-v001"
+  },
+  {
+    "name": "DB",
+    "type": "d1",
+    "id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
+  },
+  {
+    "name": "MEDIA",
+    "type": "r2_bucket",
+    "bucket_name": "afo-site-content"
+  }
+]
+```
 
 ## Safety confirmations
 
@@ -96,12 +102,8 @@ Current v007 behavior:
 
 ## Deployment
 
-Deployment ID: `affb36ee7efb49a6bc18f7948ba41f1a`
+Latest deployment ID after R2 binding update: `11617a26bd994d4cad6988fceab34a1e`
 
-Deploy tag: `fb9f42f9e03942ed9dd6729ab63ccb92`
+Latest etag: `59f8fc1cff6ef36ccaaeee0abe747c43b6e573b99a9413bed95e821a9e3d3761`
 
 Receipt: `receipts/contractor-v007-afo.deploy.json`
-
-## Smoke-test note
-
-The Worker deployed successfully and metadata confirms `BACKEND` and `DB`. External workers.dev smoke test returned Cloudflare `error code: 1042`, consistent with v005/v006 preview route behavior. No custom domain or production route was added to work around that.
