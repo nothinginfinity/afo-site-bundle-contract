@@ -1,6 +1,6 @@
 # Contractor v0.07 Binding Plan
 
-## Requested next binding layer
+## Requested binding layer
 
 Jared requested:
 
@@ -8,7 +8,7 @@ Jared requested:
 - `MEDIA` R2 bucket for files, images, videos, voice/audio recordings
 - `VECTOR_INDEX` Vectorize binding for semantic search over transcripts, docs, articles, site knowledge
 
-## What succeeded
+## What is live now
 
 ### D1
 
@@ -27,23 +27,21 @@ Attached to Worker as:
 }
 ```
 
-## What was blocked
-
 ### R2
 
-Attempted binding:
+Attached existing bucket:
 
 ```json
 {
   "type": "r2_bucket",
   "name": "MEDIA",
-  "bucket_name": "contractor-v007-afo-media"
+  "bucket_name": "afo-site-content"
 }
 ```
 
-Cloudflare rejected deploy because the bucket does not exist yet.
+This enables media storage for files, images, videos, and audio/voice recordings through `env.MEDIA`.
 
-Required next step: create R2 bucket `contractor-v007-afo-media`, then redeploy with `MEDIA` binding.
+## What is still blocked
 
 ### Vectorize
 
@@ -61,10 +59,10 @@ Cloudflare rejected deploy because the Vectorize index does not exist yet.
 
 Required next step: create Vectorize index `contractor-v007-afo-vector`, then redeploy with `VECTOR_INDEX` binding.
 
-## v007 behavior while R2/Vectorize are blocked
+## v007 behavior while Vectorize is blocked
 
 - Upload metadata is stored in D1.
-- Binary file storage is queued as metadata only.
+- Binary files/images/videos/audio are stored in R2 bucket `afo-site-content`.
 - Knowledge seeds are stored in D1.
 - Vector work is marked `pending_vector_index_not_bound`.
 - `/admin/bindings.json` and `/admin/media-plan.json` report the live/planned binding state.
