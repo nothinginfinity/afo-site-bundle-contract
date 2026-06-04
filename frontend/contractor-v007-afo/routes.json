@@ -1,0 +1,64 @@
+{
+  "worker_slug": "contractor-v007-afo",
+  "version": "0.07",
+  "preview_url": "https://contractor-v007-afo.jaredtechfit.workers.dev/",
+  "routes": [
+    "/",
+    "/admin",
+    "/admin/bindings.json",
+    "/admin/init-db",
+    "/admin/customers",
+    "/admin/customer",
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/media-plan.json",
+    "/admin/vector/seed",
+    "/admin/vector/query",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/receipts.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "live_bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001"
+    },
+    {
+      "type": "d1",
+      "name": "DB",
+      "database_name": "contractor_v007_afo_db",
+      "database_id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
+    }
+  ],
+  "planned_bindings_not_attached": [
+    {
+      "type": "r2_bucket",
+      "name": "MEDIA",
+      "bucket_name": "contractor-v007-afo-media",
+      "blocked_reason": "R2 bucket not found during deploy"
+    },
+    {
+      "type": "vectorize",
+      "name": "VECTOR_INDEX",
+      "index_name": "contractor-v007-afo-vector",
+      "blocked_reason": "Vectorize index not found during deploy"
+    }
+  ],
+  "preview_only": true,
+  "production_deploy": false,
+  "custom_domain": false
+}
