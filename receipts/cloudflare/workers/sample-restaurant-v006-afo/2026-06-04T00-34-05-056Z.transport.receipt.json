@@ -1,0 +1,107 @@
+{
+  "schema": "afo.preview.deploy.receipt.v1",
+  "script_name": "sample-restaurant-v006-afo",
+  "created_at": "2026-06-04T00:34:05.432Z",
+  "receipt_type": "preview_deploy",
+  "version": "0.06",
+  "timestamp": "2026-06-04T00:33:22.347Z",
+  "dry_run": false,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "deployed": true,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "custom_domain_added": false,
+  "production_route_added": false,
+  "deployment_confirmed_changed": false,
+  "worker_slug": "sample-restaurant-v006-afo",
+  "preview_url": "https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/",
+  "source_blob_sha": "ea50b32c521808c4d31bb5c6496ca3b03a5d22ce",
+  "source_sha256": "sha256:0fd5505098e538aed2f95dfb6e52ab2c27bda1ee55547cc0d3c1d22247ca6198",
+  "worker_transport_receipt_path": "receipts/cloudflare/workers/sample-restaurant-v006-afo/2026-06-04T00-33-22-347Z.transport.receipt.json",
+  "worker_transport_receipt_commit_sha": "3716527e9f83e40a760612372b3192f25fd8ce53",
+  "feature_summary": [
+    "HTML-first /menu",
+    "Tailwind-style cards/tabs",
+    "optimized WebP image URLs",
+    "image alt/loading/decoding/sizes",
+    "today’s specials banner",
+    "in-season badges from registry JSON",
+    "/menu.json",
+    "deeper schema",
+    "MCP dry-run action routes",
+    "expanded articles array",
+    "article tie-ins",
+    "A/B dark preview",
+    "sticky conversion CTA preserved"
+  ],
+  "smoke_tests": [
+    {
+      "route": "/",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/menu",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/menu?variant=dark",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/menu.json",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/schema.json",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/mcp/actions",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/mcp/actions/update-seasonal-menu",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/items/101",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/menu/starters/seared-scallops",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/health",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/llms.txt",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/robots.txt",
+      "status": "pending_detail_check"
+    },
+    {
+      "route": "/sitemap.xml",
+      "status": "pending_detail_check"
+    }
+  ],
+  "safety_confirmations": {
+    "prior_versions_modified": false,
+    "prior_versions_redeployed": false,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "account_ids_added": false,
+    "secrets_added": false,
+    "deployment_confirmed_changed": false,
+    "bindings": [],
+    "workers_dev_only": true
+  },
+  "notes": [
+    "Canonical preview receipt requested at receipts/sample-restaurant-v006.preview-deploy.json; this required call writes a transport-style receipt under the Worker Transport receipt path.",
+    "GitHub commit_file created worker.js, mcp.manifest.json, and deploy.spec.json; later commits for wrangler/example/content files were blocked by tool safety or network errors before completion."
+  ]
+}
