@@ -1,0 +1,43 @@
+{
+  "receipt_type": "sample-restaurant-v009-afo.patch-0091",
+  "created_at": "2026-06-04T14:18:02Z",
+  "worker": "sample-restaurant-v009-afo",
+  "version": "0.09.1",
+  "preview_url": "https://sample-restaurant-v009-afo.jaredtechfit.workers.dev/",
+  "issue_observed": {
+    "homepage_image_loaded": true,
+    "frontend_backend_status": {
+      "health": false,
+      "menu": false,
+      "articles": false,
+      "media": false,
+      "using_fallback": true
+    },
+    "diagnosis": "Public R2 image path worked, but frontend server-side backend checks via public workers.dev fetch reported unavailable."
+  },
+  "patch": {
+    "summary": "Use Cloudflare Worker service binding BACKEND for internal calls to afo-demo-backend-v001, while preserving public backend URL in schema/discovery.",
+    "binding_added": {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001"
+    },
+    "chat_and_leads": "Browser JS now posts to local frontend /chat and /leads proxy routes, which forward through the service binding when available.",
+    "media": "Homepage image now uses local /media/IMG_1530.jpeg route, which proxies to backend through the service binding when available."
+  },
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "status": 200,
+    "deployment_id": "51f1251ad2c0495fad11d4f303c62350",
+    "modified_on": "2026-06-04T14:18:02.087593Z"
+  },
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  }
+}
