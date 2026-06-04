@@ -1,0 +1,66 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "worker_slug": "contractor-v004-afo",
+  "script_name": "contractor-v004-afo",
+  "version": "0.04",
+  "timestamp": "2026-06-04T18:10:51.314908Z",
+  "preview_url": "https://contractor-v004-afo.jaredtechfit.workers.dev/",
+  "deployed": true,
+  "deployment_id": "67d12db23b87441b81ea5159a270bf89",
+  "deployment_tag": "d18ec41616d54727bc28afd7a888c5f4",
+  "preview_deploy": true,
+  "production_deploy": false,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "service_bindings": [
+    {
+      "name": "BACKEND",
+      "type": "service",
+      "service": "afo-demo-backend-v001"
+    }
+  ],
+  "feature_summary": [
+    "stronger hero CTA placement",
+    "mobile sticky Get Estimate/Chat button bar",
+    "functional call button",
+    "functional chat button and /chat route",
+    "functional estimate button and /leads route",
+    "service-card estimate CTAs",
+    "project-card similar-project estimate CTAs",
+    "backend service binding preserved",
+    "local knowledge fallback for chat",
+    "citations and suggested actions in chat"
+  ],
+  "routes": [
+    "/",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "smoke_tests": [
+    {"route":"/","status":"attempted_detail_blocked_by_tooling"},
+    {"route":"/health","status":"attempted_detail_blocked_by_tooling"},
+    {"route":"/services.json","status":"attempted_detail_blocked_by_tooling"},
+    {"route":"/chat","status":"attempted_detail_blocked_by_tooling"},
+    {"route":"/leads","status":"attempted_detail_blocked_by_tooling"}
+  ],
+  "safety_confirmations": {
+    "prior_versions_modified": false,
+    "prior_versions_redeployed": false,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "account_ids_exposed": false,
+    "secrets_exposed": false,
+    "deployment_confirmed_changed": false,
+    "preview_only_workers_dev": true
+  }
+}
