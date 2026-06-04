@@ -1,0 +1,62 @@
+{
+  "script_name": "contractor-v005-afo",
+  "mirrored_by": "cf-multipart-v0-1",
+  "mirror_version": "0.1.2-source-endpoint-fallbacks",
+  "cloudflare_is_runtime_source": true,
+  "github_is_versioned_mirror": true,
+  "source_endpoint": "script",
+  "source_bytes": 29773,
+  "metadata": {
+    "ok": true,
+    "script_name": "contractor-v005-afo",
+    "settings": {
+      "ok": true,
+      "status": 200,
+      "statusText": "OK",
+      "contentType": "application/json; charset=UTF-8",
+      "body": {
+        "result": {
+          "placement": {},
+          "compatibility_date": "",
+          "compatibility_flags": [],
+          "usage_model": "standard",
+          "tags": [],
+          "tail_consumers": [],
+          "logpush": false,
+          "annotations": {
+            "workers/triggered_by": "upload"
+          },
+          "bindings": [
+            {
+              "environment": "production",
+              "name": "BACKEND",
+              "service": "afo-demo-backend-v001",
+              "type": "service"
+            }
+          ]
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+    },
+    "routes": {
+      "ok": false,
+      "status": 403,
+      "statusText": "Forbidden",
+      "contentType": "application/json",
+      "body": {
+        "success": false,
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Authentication error"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+    }
+  },
+  "mirrored_at": "2026-06-04T19:00:21.464Z"
+}
