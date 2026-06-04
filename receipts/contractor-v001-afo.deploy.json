@@ -1,0 +1,42 @@
+{
+  "receipt_type": "contractor-v001-afo.deploy",
+  "created_at": "2026-06-04T16:10:50Z",
+  "worker": "contractor-v001-afo",
+  "version": "0.01",
+  "vertical": "contractor",
+  "business": "Ridgeline Construction",
+  "preview_url": "https://contractor-v001-afo.jaredtechfit.workers.dev/",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "deployment_id": "959ee46c513c42948b575f6b95f18e3f",
+    "tag": "9360e110e8ee46b8ba429189905080aa",
+    "modified_on": "2026-06-04T16:10:50.804587Z"
+  },
+  "bindings": [
+    { "type": "service", "name": "BACKEND", "service": "afo-demo-backend-v001" }
+  ],
+  "routes": [
+    "/", "/health", "/site.json", "/services.json", "/knowledge.json",
+    "/articles.json", "/media.json", "/chat", "/leads",
+    "/media/:key", "/schema.json", "/llms.txt", "/robots.txt", "/sitemap.xml"
+  ],
+  "features": {
+    "backend_driven_sections": true,
+    "contractor_services_catalog": true,
+    "6_step_process_section": true,
+    "knowledge_grounded_chat": true,
+    "citations_and_suggested_actions": true,
+    "fallback_banner": true,
+    "service_binding": true,
+    "vertical_specific_fallbacks": true
+  },
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  }
+}
