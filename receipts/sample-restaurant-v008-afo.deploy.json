@@ -1,0 +1,50 @@
+{
+  "receipt_type": "sample-restaurant-v008-afo.deploy",
+  "created_at": "2026-06-04T05:04:38Z",
+  "worker": "sample-restaurant-v008-afo",
+  "preview_url": "https://sample-restaurant-v008-afo.jaredtechfit.workers.dev/",
+  "backend": "https://afo-demo-backend-v001.jaredtechfit.workers.dev",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "status": 200,
+    "deployment_id": "560cf2b016174bb4a2ce2041f0e41e53",
+    "tag": "dff1b5eb6d90496895f519e577f5615c",
+    "modified_on": "2026-06-04T05:04:38.701866Z",
+    "last_deployed_from": "api"
+  },
+  "reads_backend_routes": [
+    "/menu.json",
+    "/articles.json",
+    "/media.json",
+    "/chat",
+    "/leads",
+    "/media/IMG_1530.jpeg"
+  ],
+  "frontend_routes": [
+    "/",
+    "/health",
+    "/menu.json",
+    "/articles.json",
+    "/media.json",
+    "/chat",
+    "/leads",
+    "/media/IMG_1530.jpeg",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "fallbacks_enabled": true,
+  "routes_added": false,
+  "custom_domains_added": false,
+  "production_routes_added": false,
+  "deployment_confirmed_changed": false,
+  "secrets_exposed": false,
+  "account_id_exposed": false,
+  "notes": [
+    "Preview Worker only.",
+    "No bindings required on frontend Worker; it fetches the shared backend over workers.dev.",
+    "External smoke test from this chat environment may be blocked by workers.dev DNS/fetch limitations."
+  ]
+}
