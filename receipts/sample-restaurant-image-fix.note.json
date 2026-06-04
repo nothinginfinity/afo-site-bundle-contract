@@ -1,0 +1,14 @@
+{
+  "receipt_type": "image_fix_note",
+  "timestamp": "2026-06-03T00:00:00Z",
+  "status": "source_patch_committed",
+  "affected_workers": ["sample-restaurant-v004-afo", "sample-restaurant-v006-afo"],
+  "item": "Meyer Lemon Posset",
+  "old_image_issue": "Unsplash image URL failed to render in UI",
+  "new_image_url": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=80",
+  "preview_only": true,
+  "production_route_added": false,
+  "custom_domain_added": false,
+  "account_id_added": false,
+  "secret_added": false
+}
