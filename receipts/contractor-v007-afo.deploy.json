@@ -1,0 +1,167 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "version": "0.07",
+  "worker_slug": "contractor-v007-afo",
+  "script_name": "contractor-v007-afo",
+  "preview_url": "https://contractor-v007-afo.jaredtechfit.workers.dev/",
+  "deployed": true,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "deployment_confirmed_changed": false,
+  "deployment_confirmed": false,
+  "deployment": {
+    "deployment_id": "affb36ee7efb49a6bc18f7948ba41f1a",
+    "tag": "fb9f42f9e03942ed9dd6729ab63ccb92",
+    "etag": "570429e7dd3db18063e1daed181235be64e024dcd2a6943213a91a1fc86e7a9a",
+    "created_on": "2026-06-04T19:45:19.750883Z",
+    "modified_on": "2026-06-04T19:45:19.750883Z",
+    "last_deployed_from": "api",
+    "has_modules": true,
+    "handlers": [
+      "fetch"
+    ]
+  },
+  "d1_database_created": {
+    "name": "contractor_v007_afo_db",
+    "uuid": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2",
+    "created_at": "2026-06-04T19:41:37.575Z",
+    "version": "production",
+    "created_in_region": "WNAM"
+  },
+  "live_bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001",
+      "environment": "production"
+    },
+    {
+      "type": "d1",
+      "name": "DB",
+      "database_name": "contractor_v007_afo_db",
+      "database_id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
+    }
+  ],
+  "requested_bindings_blocked": [
+    {
+      "type": "r2_bucket",
+      "name": "MEDIA",
+      "bucket_name": "contractor-v007-afo-media",
+      "attempted": true,
+      "attached": false,
+      "cloudflare_error_code": 10085,
+      "cloudflare_error": "R2 bucket 'contractor-v007-afo-media' not found. Verify the bucket exists in your account and that the bucket_name in your configuration is correct."
+    },
+    {
+      "type": "vectorize",
+      "name": "VECTOR_INDEX",
+      "index_name": "contractor-v007-afo-vector",
+      "attempted": true,
+      "attached": false,
+      "cloudflare_error_code": 10159,
+      "cloudflare_error": "Vectorize binding 'VECTOR_INDEX' references index 'contractor-v007-afo-vector' which was not found. Verify the index exists in your account and that the index_name in your configuration is correct."
+    }
+  ],
+  "feature_summary": [
+    "binding layer cockpit",
+    "D1 DB binding live",
+    "customers table foundation",
+    "upload_metadata table foundation",
+    "knowledge_seeds table foundation",
+    "prompt_requests table foundation",
+    "receipts table foundation",
+    "upload cockpit queues metadata to D1",
+    "knowledge seeds queue to D1 pending Vectorize",
+    "R2 MEDIA binding attempted but blocked by missing bucket",
+    "Vectorize VECTOR_INDEX binding attempted but blocked by missing index",
+    "backend service binding preserved",
+    "preview-safe admin only",
+    "no autonomous production deploys"
+  ],
+  "route_list": [
+    "/",
+    "/admin",
+    "/admin/bindings.json",
+    "/admin/init-db",
+    "/admin/customers",
+    "/admin/customer",
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/media-plan.json",
+    "/admin/vector/seed",
+    "/admin/vector/query",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/receipts.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "smoke_tests": [
+    {
+      "route": "/",
+      "url": "https://contractor-v007-afo.jaredtechfit.workers.dev/",
+      "attempted": true,
+      "status": 404,
+      "content_type": "text/plain; charset=UTF-8",
+      "body_marker": "error code: 1042",
+      "result": "blocked_or_unavailable_workers_dev_route"
+    },
+    {
+      "route": "metadata",
+      "attempted": true,
+      "status": 200,
+      "result": "worker_metadata_read_successfully_and_BACKEND_DB_bindings_confirmed"
+    }
+  ],
+  "source_verification": {
+    "deploy_tool_returned_success": true,
+    "worker_metadata_read": true,
+    "metadata_binding_confirmed": [
+      "BACKEND -> afo-demo-backend-v001",
+      "DB -> contractor_v007_afo_db"
+    ],
+    "routes_metadata_read_blocked": "Cloudflare API route metadata returned authentication error"
+  },
+  "repo_files": {
+    "created_or_updated": [
+      "frontend/contractor-v007-afo/README.md",
+      "frontend/contractor-v007-afo/routes.json",
+      "frontend/contractor-v007-afo/bindings-plan.md",
+      "receipts/contractor-v007-afo.deploy.json"
+    ]
+  },
+  "safety_confirmations": {
+    "no_production_routes": true,
+    "no_custom_domains": true,
+    "no_account_ids_added_to_repo_or_ui": true,
+    "no_secrets_added": true,
+    "no_real_auth_secrets": true,
+    "deployment_confirmed_not_set_true": true,
+    "v004_modified_or_redeployed": false,
+    "v005_modified_or_redeployed": false,
+    "v006_modified_or_redeployed": false,
+    "workers_dev_preview_only": true,
+    "admin_password_demo_labeled_preview_only": true,
+    "no_autonomous_production_writes": true
+  },
+  "next_steps": [
+    "Create R2 bucket contractor-v007-afo-media, then redeploy with MEDIA binding.",
+    "Create Vectorize index contractor-v007-afo-vector, then redeploy with VECTOR_INDEX binding.",
+    "Run /admin/init-db once workers.dev routing is reachable or through an internal execution path."
+  ],
+  "commit_message": "Add contractor v007 D1 binding cockpit"
+}
