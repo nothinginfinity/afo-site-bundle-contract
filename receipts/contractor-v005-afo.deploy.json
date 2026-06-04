@@ -1,0 +1,220 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "version": "0.05",
+  "worker_slug": "contractor-v005-afo",
+  "script_name": "contractor-v005-afo",
+  "preview_url": "https://contractor-v005-afo.jaredtechfit.workers.dev/",
+  "deployed": true,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "deployment_confirmed_changed": false,
+  "deployment_confirmed": false,
+  "deployment": {
+    "deployment_id": "a3385dc2b28646d2ba61feca402a22d8",
+    "tag": "aabbfecb19f143458e0a62b11389e567",
+    "etag": "33a3ab62121f270352bbac4506eb7a2ca29380472975fb549513f981428112b0",
+    "created_on": "2026-06-04T18:54:52.261305Z",
+    "modified_on": "2026-06-04T18:54:52.261305Z",
+    "last_deployed_from": "api",
+    "has_modules": true,
+    "handlers": [
+      "fetch"
+    ]
+  },
+  "service_bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001",
+      "environment": "production"
+    }
+  ],
+  "feature_summary": [
+    "contractor + admin chat demo",
+    "password-gated /admin page",
+    "default demo password: demo",
+    "admin prompt generator",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt",
+    "featured project page foundation",
+    "/projects/featured",
+    "/featured-project.json",
+    "improved mobile sticky Get Estimate / Chat CTA",
+    "backend service binding preserved",
+    "preview-safe admin only",
+    "no autonomous production writes"
+  ],
+  "route_list": [
+    "/",
+    "/admin",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt",
+    "/projects/featured",
+    "/featured-project.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "smoke_tests": [
+    {
+      "route": "/",
+      "url": "https://contractor-v005-afo.jaredtechfit.workers.dev/",
+      "attempted": true,
+      "status": 404,
+      "content_type": "text/plain; charset=UTF-8",
+      "body_marker": "error code: 1042",
+      "result": "blocked_or_unavailable_workers_dev_route"
+    },
+    {
+      "route": "https://contractor-v005-afo.workers.dev/",
+      "attempted": true,
+      "status": 530,
+      "content_type": "text/plain; charset=UTF-8",
+      "body_marker": "error code: 1016",
+      "result": "alternate_workers_dev_host_not_active"
+    },
+    {
+      "route": "/admin",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/prompts.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/actions.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/chat",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/export-prompt",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/projects/featured",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/featured-project.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/health",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/services.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/projects.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/knowledge.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/articles.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/chat",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/leads",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/schema.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/llms.txt",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/robots.txt",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/sitemap.xml",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    }
+  ],
+  "source_verification": {
+    "worker_metadata_read": true,
+    "worker_source_read": true,
+    "source_contains": "Contractor v0.05 - Contractor + Admin Chat Demo",
+    "metadata_binding_confirmed": "BACKEND -> afo-demo-backend-v001",
+    "routes_metadata_read_blocked": "Cloudflare API route metadata returned authentication error"
+  },
+  "repo_files": {
+    "created_or_updated": [
+      "apps/contractor-v005-afo/src/worker.js",
+      "apps/contractor-v005-afo/worker.manifest.json",
+      "apps/contractor-v005-afo/snapshots/2026-06-04T19-00-21-464Z-worker.js",
+      "frontend/contractor-v005-afo/README.md",
+      "frontend/contractor-v005-afo/admin-prompts.md",
+      "frontend/contractor-v005-afo/routes.json",
+      "receipts/contractor-v005-afo.deploy.json"
+    ]
+  },
+  "safety_confirmations": {
+    "no_production_routes": true,
+    "no_custom_domains": true,
+    "no_account_ids_added": true,
+    "no_secrets_added": true,
+    "no_real_auth_secrets": true,
+    "no_bindings_except_BACKEND": true,
+    "deployment_confirmed_not_set_true": true,
+    "prior_versions_modified_or_redeployed": false,
+    "workers_dev_preview_only": true,
+    "admin_password_demo_labeled_preview_only": true,
+    "admin_routes_do_not_mutate_github_d1_r2_cloudflare": true,
+    "no_autonomous_production_writes": true
+  },
+  "notes": [
+    "Cloudflare script deploy succeeded and metadata confirms BACKEND service binding.",
+    "Expected workers.dev preview URL returned Cloudflare error code 1042 during external smoke test.",
+    "No production route or custom domain was added to remediate the workers.dev routing issue."
+  ],
+  "commit_message": "Add contractor v005 admin chat demo"
+}
