@@ -1,0 +1,197 @@
+{
+  "receipt_type": "preview_deploy",
+  "schema": "afo.preview.deploy.receipt.v1",
+  "version": "0.06",
+  "worker_slug": "contractor-v006-afo",
+  "script_name": "contractor-v006-afo",
+  "preview_url": "https://contractor-v006-afo.jaredtechfit.workers.dev/",
+  "deployed": true,
+  "preview_deploy": true,
+  "production_deploy": false,
+  "production_deploy_attempted": false,
+  "runtime_publish_attempted": true,
+  "deployment_confirmed_changed": false,
+  "deployment_confirmed": false,
+  "deployment": {
+    "deployment_id": "465c9f6bd51c49389983a7739b8dc144",
+    "tag": "79137096339e47f3a03724af6fcfffba",
+    "etag": "d4335452611563e482933a837dc36774fa1d1f2fa7e2b4025670bb6941563f5a",
+    "created_on": "2026-06-04T19:23:49.44279Z",
+    "modified_on": "2026-06-04T19:23:49.44279Z",
+    "last_deployed_from": "api",
+    "has_modules": true,
+    "handlers": [
+      "fetch"
+    ]
+  },
+  "service_bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001",
+      "environment": "production"
+    }
+  ],
+  "connected_versions": {
+    "v004": {
+      "worker_slug": "contractor-v004-afo",
+      "url": "https://contractor-v004-afo.jaredtechfit.workers.dev/",
+      "modified_or_redeployed": false
+    },
+    "v005": {
+      "worker_slug": "contractor-v005-afo",
+      "url": "https://contractor-v005-afo.jaredtechfit.workers.dev/",
+      "modified_or_redeployed": false
+    },
+    "v006": {
+      "worker_slug": "contractor-v006-afo",
+      "url": "https://contractor-v006-afo.jaredtechfit.workers.dev/",
+      "role": "connected site manager cockpit"
+    }
+  },
+  "feature_summary": [
+    "connected contractor + admin cockpit demo",
+    "dropdown menu from public demo",
+    "admin login from dropdown",
+    "links to v004 public demo",
+    "links to v005 admin demo",
+    "password-gated /admin page",
+    "default demo password: demo",
+    "admin prompt generator",
+    "upload cockpit for files/images/videos/voice-note metadata",
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/recordings",
+    "/admin/media-plan.json",
+    "future D1/R2/Vectorize binding plan",
+    "staged/dry-run upload endpoint",
+    "backend service binding preserved",
+    "preview-safe admin only",
+    "no autonomous production writes"
+  ],
+  "route_list": [
+    "/",
+    "/admin",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt",
+    "/admin/uploads",
+    "/admin/upload",
+    "/admin/uploads.json",
+    "/admin/recordings",
+    "/admin/media-plan.json",
+    "/projects/featured",
+    "/featured-project.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "upload_mode": {
+    "current": "dry_run_staged_only",
+    "real_d1_writes": false,
+    "real_r2_writes": false,
+    "real_vectorize_writes": false,
+    "reason": "Only BACKEND service binding was attached for v006. D1/R2/Vectorize bindings are planned but not added yet."
+  },
+  "future_binding_plan": [
+    {
+      "type": "d1",
+      "name": "DB",
+      "purpose": "metadata, customers, upload queue, knowledge seeds"
+    },
+    {
+      "type": "r2_bucket",
+      "name": "MEDIA",
+      "purpose": "files, images, videos, audio/voice recordings"
+    },
+    {
+      "type": "vectorize",
+      "name": "VECTOR_INDEX",
+      "purpose": "semantic search over transcripts, docs, articles, site knowledge"
+    }
+  ],
+  "smoke_tests": [
+    {
+      "route": "/",
+      "url": "https://contractor-v006-afo.jaredtechfit.workers.dev/",
+      "attempted": true,
+      "status": 404,
+      "content_type": "text/plain; charset=UTF-8",
+      "body_marker": "error code: 1042",
+      "result": "blocked_or_unavailable_workers_dev_route"
+    },
+    {
+      "route": "metadata",
+      "attempted": true,
+      "status": 200,
+      "result": "worker_metadata_read_successfully_and_binding_confirmed"
+    },
+    {
+      "route": "/admin",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/uploads",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/admin/media-plan.json",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    },
+    {
+      "route": "/health",
+      "attempted": true,
+      "result": "attempted_detail_blocked_by_tooling_after_workers_dev_route_error_1042"
+    }
+  ],
+  "source_verification": {
+    "deploy_tool_returned_success": true,
+    "worker_metadata_read": true,
+    "metadata_binding_confirmed": "BACKEND -> afo-demo-backend-v001",
+    "routes_metadata_read_blocked": "Cloudflare API route metadata returned authentication error"
+  },
+  "repo_files": {
+    "created_or_updated": [
+      "frontend/contractor-v006-afo/README.md",
+      "frontend/contractor-v006-afo/routes.json",
+      "frontend/contractor-v006-afo/upload-cockpit.md",
+      "receipts/contractor-v006-afo.deploy.json"
+    ]
+  },
+  "safety_confirmations": {
+    "no_production_routes": true,
+    "no_custom_domains": true,
+    "no_account_ids_added": true,
+    "no_secrets_added": true,
+    "no_real_auth_secrets": true,
+    "no_bindings_except_BACKEND": true,
+    "deployment_confirmed_not_set_true": true,
+    "v004_modified_or_redeployed": false,
+    "v005_modified_or_redeployed": false,
+    "workers_dev_preview_only": true,
+    "admin_password_demo_labeled_preview_only": true,
+    "admin_upload_routes_do_not_mutate_d1_r2_vectorize": true,
+    "admin_routes_do_not_mutate_github_d1_r2_cloudflare": true,
+    "no_autonomous_production_writes": true
+  },
+  "notes": [
+    "Cloudflare script deploy succeeded and metadata confirms BACKEND service binding.",
+    "Expected workers.dev preview URL returned Cloudflare error code 1042 during external smoke test.",
+    "No production route or custom domain was added to remediate the workers.dev routing issue.",
+    "v006 creates the upload cockpit foundation but does not attach D1/R2/Vectorize bindings yet."
+  ],
+  "commit_message": "Add contractor v006 connected cockpit demo"
+}
