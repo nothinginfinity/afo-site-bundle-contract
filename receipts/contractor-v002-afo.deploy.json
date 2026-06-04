@@ -1,0 +1,56 @@
+{
+  "receipt_type": "contractor-v002-afo.deploy",
+  "created_at": "2026-06-04T16:24:49Z",
+  "worker": "contractor-v002-afo",
+  "version": "0.02",
+  "vertical": "contractor",
+  "business": "CCS Services Group",
+  "source_url": "https://www.ccsservicesgroup.com/",
+  "preview_url": "https://contractor-v002-afo.jaredtechfit.workers.dev/",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "deployment_id": "12ee577d126e454397e77bad378595dc",
+    "tag": "0f5b8e8642b74bf9ae711bd73c3268cc",
+    "modified_on": "2026-06-04T16:24:49.985421Z"
+  },
+  "bindings": [
+    { "type": "service", "name": "BACKEND", "service": "afo-demo-backend-v001" }
+  ],
+  "business_data": {
+    "name": "CCS Services Group",
+    "legal_name": "Construction Connection Services",
+    "phone": "(818) 624-7212",
+    "address": "Encino, CA 91316",
+    "service_area": "Los Angeles and surrounding areas",
+    "cslb": "890991",
+    "license_class": "Class B General Building Contractor",
+    "licensed": true,
+    "bonded": true,
+    "insured": true
+  },
+  "features": {
+    "hero_cta_get_estimate": true,
+    "hero_cta_view_services": true,
+    "trust_bar_with_cslb": true,
+    "services_grid_6_cards": true,
+    "process_6_steps": true,
+    "real_customer_reviews_3": true,
+    "articles_la_contractor_3": true,
+    "knowledge_grounded_chat_12_chunks": true,
+    "citations_and_suggested_actions": true,
+    "leads_form_with_service_type": true,
+    "phone_and_whatsapp_in_leads": true,
+    "instagram_link": true,
+    "fallback_banner": true,
+    "service_binding": true
+  },
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  }
+}
