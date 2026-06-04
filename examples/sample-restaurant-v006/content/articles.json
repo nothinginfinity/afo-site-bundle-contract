@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "behind-the-seared-scallops",
+    "item": "101",
+    "category": "behind the dish",
+    "title": "Behind the Dish: Seared Scallops",
+    "summary": "How one coastal starter becomes a structured content asset.",
+    "body": "The seared scallops page demonstrates HTML, markdown, schema, sitemap, menu.json, and story output from one registry row."
+  },
+  {
+    "slug": "spring-pairings-for-coastal-starters",
+    "item": "101",
+    "category": "pairings",
+    "title": "Spring Pairings for Coastal Starters",
+    "summary": "Wine, zero-proof, and dessert pairings for bright seafood starters.",
+    "body": "Pairing copy gives the sales demo depth and gives AI systems context beyond the item name."
+  },
+  {
+    "slug": "chef-notes-halibut-salsa-verde",
+    "item": "201",
+    "category": "chef notes",
+    "title": "Chef Notes: Halibut with Salsa Verde",
+    "summary": "A concise chef note for a premium seasonal main.",
+    "body": "The halibut story shows how chef notes can turn a static entrée into a seasonal sales asset."
+  },
+  {
+    "slug": "seasonal-ingredient-story-wild-mushrooms",
+    "item": "202",
+    "category": "seasonal ingredient stories",
+    "title": "Seasonal Ingredient Story: Wild Mushrooms",
+    "summary": "How a fall ingredient story can feed menu pages and private event copy.",
+    "body": "The campanelle item demonstrates a reusable seasonal narrative."
+  },
+  {
+    "slug": "private-event-menu-planning",
+    "item": "201",
+    "category": "private events",
+    "title": "Private Event Menu Planning with Seasonal Anchors",
+    "summary": "How a restaurant can shape a private dining menu around current specials.",
+    "body": "v0.06 includes data hooks for availableToday, badge, season, and specialMessage so an MCP dry run can propose private event menus without production changes."
+  },
+  {
+    "slug": "local-sourcing-citrus-avocado",
+    "item": "102",
+    "category": "local sourcing",
+    "title": "Local Sourcing: Citrus, Avocado, and Fennel",
+    "summary": "A sourcing article paired to a vegan and gluten-free starter.",
+    "body": "Local sourcing copy creates owner-ready depth for search, LLM discovery, and menu trust."
+  },
+  {
+    "slug": "meyer-lemon-season",
+    "item": "301",
+    "category": "seasonal ingredient stories",
+    "title": "Meyer Lemon Season",
+    "summary": "A seasonal dessert story for search and AI discovery.",
+    "body": "The Meyer lemon posset connects citrus seasonality with structured dessert data and LLM-friendly markdown."
+  }
+]
