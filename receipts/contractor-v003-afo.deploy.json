@@ -1,0 +1,50 @@
+{
+  "receipt_type": "contractor-v003-afo.deploy",
+  "created_at": "2026-06-04T16:42:24Z",
+  "worker": "contractor-v003-afo",
+  "version": "0.03",
+  "vertical": "contractor",
+  "business": "CCS Services Group",
+  "source_url": "https://www.ccsservicesgroup.com/",
+  "preview_url": "https://contractor-v003-afo.jaredtechfit.workers.dev/",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "deployment_id": "f5f391927b124d57a00716c387ea51f7",
+    "tag": "cdd38193fa7745c1ba44fdd2730c3cba",
+    "modified_on": "2026-06-04T16:42:24.919408Z"
+  },
+  "bindings": [
+    { "type": "service", "name": "BACKEND", "service": "afo-demo-backend-v001" }
+  ],
+  "new_in_v003": [
+    "Full-bleed animated hero with Unsplash construction images",
+    "Hero stats bar (15+ years, 500+ projects, 5-star rating)",
+    "Tabbed service panels with per-service photo, description, highlights, and CTA",
+    "Portfolio / projects section with 6 sample LA projects",
+    "Project filter bar (All, Kitchen, Bathroom, ADU, New Construction, General, Exterior)",
+    "Image lightbox with project details, sqft, budget range, and estimate CTA",
+    "Animated hero zoom on load",
+    "Expandable articles (5 articles, click Read more)",
+    "Leads form: budget range dropdown + timeline dropdown + labeled fields",
+    "Full nav: Home, Services, Projects, Process, Reviews, Resources + phone + CTA",
+    "Hamburger mobile menu with slide-in drawer",
+    "Open Graph + Twitter Card meta tags",
+    "clamp() fluid typography for mobile",
+    "/projects.json endpoint",
+    "Project portfolio knowledge chunk in chat"
+  ],
+  "routes": [
+    "/", "/health", "/services.json", "/projects.json", "/knowledge.json",
+    "/articles.json", "/chat", "/leads", "/media/:key",
+    "/schema.json", "/llms.txt", "/robots.txt", "/sitemap.xml"
+  ],
+  "safety": {
+    "preview_only": true,
+    "production_routes_added": false,
+    "custom_domains_added": false,
+    "secrets_exposed": false,
+    "account_id_exposed": false,
+    "deployment_confirmed_changed": false
+  }
+}
