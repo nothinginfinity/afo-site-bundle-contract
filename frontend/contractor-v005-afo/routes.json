@@ -1,0 +1,61 @@
+{
+  "worker_slug": "contractor-v005-afo",
+  "version": "0.05",
+  "preview_url": "https://contractor-v005-afo.jaredtechfit.workers.dev/",
+  "routes": [
+    "/",
+    "/admin",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt",
+    "/projects/featured",
+    "/featured-project.json",
+    "/health",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/chat",
+    "/leads",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "admin_routes": [
+    "/admin",
+    "/admin/prompts.json",
+    "/admin/actions.json",
+    "/admin/chat",
+    "/admin/export-prompt"
+  ],
+  "featured_project_routes": [
+    "/projects/featured",
+    "/featured-project.json"
+  ],
+  "preserved_v004_routes": [
+    "/",
+    "/chat",
+    "/leads",
+    "/services.json",
+    "/projects.json",
+    "/knowledge.json",
+    "/articles.json",
+    "/schema.json",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/health"
+  ],
+  "preview_only": true,
+  "production_deploy": false,
+  "custom_domain": false,
+  "bindings": [
+    {
+      "type": "service",
+      "name": "BACKEND",
+      "service": "afo-demo-backend-v001"
+    }
+  ]
+}
