@@ -1,0 +1,7 @@
+name = "sample-restaurant-v006-afo"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+workers_dev = true
+
+[vars]
+AFO_PREVIEW_ONLY = "true"
