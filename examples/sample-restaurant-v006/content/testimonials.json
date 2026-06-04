@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Maya Chen",
+    "role": "Local guide",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&fm=webp&w=180&q=70",
+    "quote": "The menu pages feel like a real restaurant, not a placeholder demo."
+  },
+  {
+    "name": "Drew Alvarez",
+    "role": "Event planner",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&fm=webp&w=180&q=70",
+    "quote": "The Menu/Reserve/Event CTA makes the next step obvious on mobile."
+  },
+  {
+    "name": "Noor Patel",
+    "role": "Food writer",
+    "photo": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&fm=webp&w=180&q=70",
+    "quote": "Every dish has a story, clean schema, and an AI-friendly version."
+  },
+  {
+    "name": "Sam Rivera",
+    "role": "Private dining guest",
+    "photo": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&fm=webp&w=180&q=70",
+    "quote": "The live-menu preview feels ready for a restaurant owner sales call."
+  }
+]
