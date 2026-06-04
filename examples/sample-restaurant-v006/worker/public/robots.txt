@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sample-restaurant-v006-afo.jaredtechfit.workers.dev/sitemap.xml
