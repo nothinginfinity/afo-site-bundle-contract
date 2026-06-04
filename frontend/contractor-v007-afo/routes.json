@@ -42,20 +42,19 @@
       "name": "DB",
       "database_name": "contractor_v007_afo_db",
       "database_id": "f6f5b8e5-b5d1-48c7-b5a5-cb334c81bae2"
+    },
+    {
+      "type": "r2_bucket",
+      "name": "MEDIA",
+      "bucket_name": "afo-site-content"
     }
   ],
   "planned_bindings_not_attached": [
     {
-      "type": "r2_bucket",
-      "name": "MEDIA",
-      "bucket_name": "contractor-v007-afo-media",
-      "blocked_reason": "R2 bucket not found during deploy"
-    },
-    {
       "type": "vectorize",
       "name": "VECTOR_INDEX",
       "index_name": "contractor-v007-afo-vector",
-      "blocked_reason": "Vectorize index not found during deploy"
+      "blocked_reason": "Vectorize index not found during deploy attempt"
     }
   ],
   "preview_only": true,
