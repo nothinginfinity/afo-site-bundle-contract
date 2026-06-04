@@ -1,0 +1,56 @@
+{
+  "receipt_type": "afo-demo-backend-v001.deploy",
+  "created_at": "2026-06-04T04:55:00Z",
+  "worker": "afo-demo-backend-v001",
+  "preview_url": "https://afo-demo-backend-v001.jaredtechfit.workers.dev/",
+  "deploy": {
+    "ok": true,
+    "deployed": true,
+    "status": 200,
+    "deployment_id": "36be5a7552e0472480cc67371d38866e",
+    "tag": "c9acfbd3511540c2a51ba3a59cdecf6c",
+    "modified_on": "2026-06-04T04:55:00.5569Z",
+    "last_deployed_from": "api"
+  },
+  "bindings": [
+    {
+      "type": "d1",
+      "name": "DB",
+      "id": "ccbd076e-aaa7-42bb-8808-a20bd83569e2"
+    },
+    {
+      "type": "r2_bucket",
+      "name": "MEDIA",
+      "bucket_name": "afo-site-content"
+    }
+  ],
+  "routes_added": false,
+  "custom_domains_added": false,
+  "production_routes_added": false,
+  "deployment_confirmed_changed": false,
+  "secrets_exposed": false,
+  "account_id_exposed": false,
+  "schema_seed_status": {
+    "direct_d1_migration_attempted": true,
+    "post_admin_schema_attempted": false,
+    "post_admin_seed_attempted": false,
+    "confirmation": "D1 migration tool response was summarized; backend D1 route confirmation was blocked by external fetch/DNS/cache-miss limits from this chat environment."
+  },
+  "implemented_routes": [
+    "/health",
+    "/menu.json",
+    "/articles.json",
+    "/media.json",
+    "/media/IMG_1530.jpeg",
+    "/chat",
+    "/leads",
+    "/admin/schema",
+    "/admin/seed",
+    "/mcp/actions/update-seasonal-menu"
+  ],
+  "notes": [
+    "Fuller preview Worker deployed with compact D1 schema support and seed endpoints.",
+    "R2 serving path preserved for IMG_1530.jpeg.",
+    "No custom domain or production route work performed."
+  ]
+}
