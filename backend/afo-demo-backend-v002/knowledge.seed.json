@@ -1,0 +1,96 @@
+{
+  "business_id": "biz_demo_coast",
+  "demo_site_id": "site_demo_restaurant_001",
+  "chunks": [
+    {
+      "id": "chunk_menu_overview_001",
+      "source_type": "menu",
+      "source_id": "menu_overview",
+      "title": "Menu overview",
+      "content": "Our menu features seasonal coastal cuisine with chef-led specials rotating weekly. Key dishes include Meyer Lemon Posset, Seared Scallops with citrus beurre blanc, and Pacific Halibut en papillote. The menu is divided into starters, mains, and desserts. Vegetarian and dietary-restricted options are available on request.",
+      "tags": "menu,food,seasonal,coastal",
+      "priority": 10
+    },
+    {
+      "id": "chunk_private_events_001",
+      "source_type": "info",
+      "source_id": "private_events",
+      "title": "Private event dining",
+      "content": "We host private events for groups of 10 to 60 guests. Our private dining room is available for corporate dinners, milestone celebrations, rehearsal dinners, and wine pairing evenings. Custom menus and AV arrangements are available. Submit a lead form to inquire and our events team will follow up within 24 hours.",
+      "tags": "events,private,groups,dining",
+      "priority": 9
+    },
+    {
+      "id": "chunk_reservations_001",
+      "source_type": "info",
+      "source_id": "reservations",
+      "title": "Reservations",
+      "content": "Reservations are recommended, especially on weekends. We accept bookings up to 30 days in advance. For same-day availability, call us directly or submit the reservation form on our site. Large parties of 8 or more require a 48-hour advance booking.",
+      "tags": "reservations,booking,availability",
+      "priority": 9
+    },
+    {
+      "id": "chunk_meyer_lemon_posset_001",
+      "source_type": "menu_item",
+      "source_id": "item_meyer_lemon_posset",
+      "title": "Meyer Lemon Posset",
+      "content": "Meyer Lemon Posset is our signature dessert: a silky cream-set custard made with fresh Meyer lemons, finished with candied lemon zest and a shortbread crumble. It is gluten-adaptable on request. Priced at $14. Pairs well with our dessert wine selection.",
+      "tags": "dessert,lemon,posset,signature,gluten-free",
+      "priority": 8
+    },
+    {
+      "id": "chunk_seared_scallops_001",
+      "source_type": "menu_item",
+      "source_id": "item_seared_scallops",
+      "title": "Seared Scallops",
+      "content": "Pan-seared day-boat scallops served with citrus beurre blanc, spring pea purée, and micro herbs. Available as a starter. Priced at $24. Sourced from local Pacific waters. Shellfish allergen warning applies.",
+      "tags": "scallops,seafood,starter,shellfish",
+      "priority": 7
+    },
+    {
+      "id": "chunk_pacific_halibut_001",
+      "source_type": "menu_item",
+      "source_id": "item_pacific_halibut",
+      "title": "Pacific Halibut en papillote",
+      "content": "Wild Pacific halibut slow-roasted in parchment with heirloom tomatoes, olives, capers, and herbs. Served with a side of roasted fingerling potatoes. Priced at $38. Gluten-free and dairy-free. Available as a seasonal main.",
+      "tags": "halibut,fish,main,gluten-free,dairy-free",
+      "priority": 7
+    },
+    {
+      "id": "chunk_dietary_info_001",
+      "source_type": "info",
+      "source_id": "dietary",
+      "title": "Vegetarian and dietary options",
+      "content": "We accommodate most dietary needs including vegetarian, vegan, gluten-free, and dairy-free. Please inform your server or note it in your reservation. Our kitchen will do its best to adjust dishes. Cross-contamination cannot be fully guaranteed for severe allergens.",
+      "tags": "dietary,vegetarian,vegan,gluten-free,allergen",
+      "priority": 6
+    },
+    {
+      "id": "chunk_location_parking_001",
+      "source_type": "info",
+      "source_id": "location_parking",
+      "title": "Parking and location",
+      "content": "We are located at 1 Coastal Drive, Demo Bay. Street parking is available on adjacent blocks. A public parking structure is located two blocks north. Valet is available Thursday through Sunday evenings. We are accessible via public transit: the 42 bus stops one block south.",
+      "tags": "location,parking,transit,directions",
+      "priority": 5
+    },
+    {
+      "id": "chunk_lead_capture_001",
+      "source_type": "info",
+      "source_id": "lead_capture",
+      "title": "Lead capture and contact form",
+      "content": "You can submit a reservation request, event inquiry, or general question through our contact form. We typically respond within 24 hours. Fields include name, email, phone, intent (reservation, private event, general), and message. Your information is used only to respond to your inquiry.",
+      "tags": "contact,lead,form,inquiry",
+      "priority": 5
+    },
+    {
+      "id": "chunk_afo_demo_001",
+      "source_type": "meta",
+      "source_id": "afo_demo_explanation",
+      "title": "AFO demo explanation",
+      "content": "This restaurant website is a demonstration built by Agent Feed Optimization (AFO). It showcases a headless business content engine with backend-driven rendering, D1/R2 storage, knowledge retrieval, and AI chat grounded in updatable content chunks. The demo is preview-only and does not represent a real restaurant.",
+      "tags": "afo,demo,preview,meta",
+      "priority": 1
+    }
+  ]
+}
