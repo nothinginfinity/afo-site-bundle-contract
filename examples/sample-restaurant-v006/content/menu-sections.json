@@ -1,0 +1,17 @@
+[
+  {
+    "id": "starters",
+    "name": "Starters",
+    "description": "Bright openers and coastal small plates."
+  },
+  {
+    "id": "mains",
+    "name": "Mains",
+    "description": "Seasonal California center plates."
+  },
+  {
+    "id": "desserts",
+    "name": "Desserts",
+    "description": "Sunny desserts and end-of-meal signatures."
+  }
+]
