@@ -1,0 +1,15 @@
+# Sample Restaurant v0.06
+
+Restaurant v0.06 upgrades the menu into a polished HTML-first, conversion-ready, MCP-action-ready restaurant preview.
+
+## Routes
+- /menu polished HTML-first menu
+- /menu?variant=dark A/B dark preview
+- /menu.json structured menu with specials and season badges
+- /registry.json source registry for Mobile Terminal and MCP dry runs
+- /mcp/actions preview-only action catalog
+- /mcp/actions/update-seasonal-menu dry-run action detail
+- /schema.json Restaurant/Menu/MenuSection/MenuItem/Offer/Review/Article concepts
+
+## Safety
+Preview-only. No production routes, custom domains, account IDs, secrets, or deployment.confirmed changes. MCP actions require confirmation and keep production_deploy false.
