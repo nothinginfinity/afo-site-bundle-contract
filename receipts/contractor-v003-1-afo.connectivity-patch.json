@@ -1,0 +1,11 @@
+{
+  "receipt_type": "contractor-v003-1-afo-connectivity-patch",
+  "worker": "contractor-v003-1-afo",
+  "company": "CCS Services Group",
+  "timestamp": "2026-06-05T00:00:00.000Z",
+  "deployment_confirmed": false,
+  "scope": {
+    "allowed_worker": "contractor-v003-1-afo",
+    "protected_workers_untouched": [
+      "contractor-v003-afo",
+      "contractor-v004-afo",
