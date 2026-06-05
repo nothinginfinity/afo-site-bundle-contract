@@ -1,10 +1,16 @@
 # contractor-v003-1-afo connectivity patch
 
-Target Worker: `contractor-v003-1-afo` only.
+Date: 2026-06-05
+Worker: contractor-v003-1-afo
+Company: CCS Services Group
+Scope: workers.dev preview only
 
-This patch is scoped to the CCS Services Group v003.1 contractor demo. Original `contractor-v003-afo` and `contractor-v004-afo` through `contractor-v008-afo` are protected and must remain untouched.
+## Intent
 
-## Intended connectivity fixes
+Finish the connective tissue for the nearly-complete contractor-v003-1-afo demo without redesigning the v003 public/admin UI and without touching original v003 or v004-v008.
 
-- Add `/health` as an alias for `/api/status`.
-- Add `/api/search` as an alias for `/api/knowledge
+## Safe patch target
+
+Only patch:
+
+- `apps/contractor-v003-1-afo/src/
